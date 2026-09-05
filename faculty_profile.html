@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Faculty Profile - Quiz Master</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="main-header">
+		<div class="logo"><h1>Quiz Master</h1></div>
+		<nav class="main-nav">
+			<a href="faculty_dashboard.html">Dashboard</a>
+			<a href="faculty_courses.html">My Courses</a>
+			<a href="create_quiz.html">Create Quiz</a>
+			<a href="add_question.html">Add Question</a>
+			<a href="question_bank.html">Question Bank</a>
+			<a href="schedule_quiz.html">Schedule Quiz</a>
+			<a href="student_results.html">Results</a>
+			<a href="faculty_performance_analysis.html">Analysis</a>
+			<a href="faculty_materials.html">Materials</a>
+			<a href="faculty_assignments.html">Assignments</a>
+			<a href="faculty_profile.html" class="active">Profile</a>
+			<a href="login.html">Logout</a>
+		</nav>
+	</header>
+
+	<main class="management-container">
+		<div class="dashboard-heading">
+			<div><h2>Faculty Profile</h2><p>View and manage your faculty account information.</p></div>
+		</div>
+
+		<div class="management-card profile-card">
+			<div class="profile-header">
+				<div class="profile-avatar"><span>FK</span></div>
+				<div class="profile-title">
+					<h2>Faculty Member</h2><p>Faculty ID: FAC001</p>
+					<span class="status-badge status-active">Active</span>
+				</div>
+			</div>
+
+			<section class="profile-section">
+				<h3>Personal Information</h3>
+				<div class="form-row">
+					<div class="form-group"><label for="facultyName">Full Name</label><input id="facultyName" value="Dr. Arun Kumar" disabled></div>
+					<div class="form-group"><label>Faculty ID</label><input value="FAC001" disabled></div>
+				</div>
+				<div class="form-row">
+					<div class="form-group"><label for="facultyEmail">Email Address</label><input type="email" id="facultyEmail" value="arun.kumar@quizmaster.com" disabled></div>
+					<div class="form-group"><label for="facultyPhone">Phone Number</label><input id="facultyPhone" value="+91 98765 43210" disabled></div>
+				</div>
+			</section>
+
+			<section class="profile-section">
+				<h3>Professional Information</h3>
+				<div class="form-row">
+					<div class="form-group"><label for="facultyDepartment">Department</label><input id="facultyDepartment" value="Artificial Intelligence and Data Science" disabled></div>
+					<div class="form-group"><label for="facultyDesignation">Designation</label><input id="facultyDesignation" value="Assistant Professor" disabled></div>
+				</div>
+				<div class="form-row">
+					<div class="form-group"><label for="facultyQualification">Qualification</label><input id="facultyQualification" value="M.Tech - Computer Science" disabled></div>
+					<div class="form-group"><label for="facultyExperience">Experience</label><input id="facultyExperience" value="8 Years" disabled></div>
+				</div>
+			</section>
+
+			<section class="profile-section"><h3>Courses Handled</h3><div class="course-tags">
+				<span class="course-tag">Python Programming</span><span class="course-tag">SQL Fundamentals</span><span class="course-tag">Data Science</span><span class="course-tag">Machine Learning</span>
+			</div></section>
+
+			<section class="profile-section"><h3>Account Information</h3><div class="form-row">
+				<div class="form-group"><label>Account Created</label><input value="15-06-2025" disabled></div>
+				<div class="form-group"><label>Last Login</label><input value="03-09-2026" disabled></div>
+			</div></section>
+
+			<div class="form-actions">
+				<button type="button" class="secondary-button" onclick="changePassword()">Change Password</button>
+				<button type="button" class="primary-button" id="editProfileButton" onclick="editProfile()">Edit Profile</button>
+			</div>
+		</div>
+
+		<div class="stats-grid">
+			<div class="stat-card"><div class="stat-icon">📚</div><div><h3>4</h3><p>Courses</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📝</div><div><h3>18</h3><p>Quizzes Created</p></div></div>
+			<div class="stat-card"><div class="stat-icon">👨‍🎓</div><div><h3>156</h3><p>Students</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📊</div><div><h3>24</h3><p>Assignments</p></div></div>
+		</div>
+	</main>
+
+	<footer class="main-footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+	<script>
+		function editProfile() {
+			const fields = ['facultyName','facultyEmail','facultyPhone','facultyDepartment','facultyDesignation','facultyQualification','facultyExperience'];
+			const button = document.getElementById('editProfileButton');
+			const saving = button.textContent === 'Save Profile';
+			fields.forEach(id => { document.getElementById(id).disabled = saving; });
+			if (saving) alert('Profile updated successfully!');
+			button.textContent = saving ? 'Edit Profile' : 'Save Profile';
+		}
+		function changePassword() {
+			const password = prompt('Enter your new password:');
+			if (password === null) return;
+			if (!password.trim()) return alert('Password cannot be empty.');
+			if (password.length < 6) return alert('Password must contain at least 6 characters.');
+			alert('Password changed successfully!');
+		}
+	</script>
+</body>
+</html>

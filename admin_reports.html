@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Reports - Quiz Management System</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+	<header class="main-header"><div class="header-container">
+		<div class="logo-section"><h1>Quiz Management System</h1><p>Admin Panel</p></div>
+		<nav class="main-nav">
+			<a href="admin_dashboard.html">Dashboard</a><a href="course_management.html">Courses</a>
+			<a href="student_management.html">Students</a><a href="faculty_management.html">Faculty</a>
+			<a href="student_enrollment.html">Enrollment</a><a href="faculty_assignment.html">Faculty Assignment</a>
+			<a href="quiz_management.html">Quizzes</a><a href="admin_reports.html" class="active">Reports</a>
+			<a href="admin_profile.html">Profile</a>
+		</nav>
+	</div></header>
+
+	<main class="management-container">
+		<div class="dashboard-heading"><div><h2>Admin Reports</h2><p>Analyze student, quiz, course and overall system performance.</p></div>
+			<button class="primary-button" onclick="generateReport()">Generate Report</button></div>
+
+		<div class="stats-grid">
+			<div class="stat-card"><div class="stat-icon">👨‍🎓</div><div><h3>250</h3><p>Total Students</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📝</div><div><h3>65</h3><p>Total Quizzes</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📊</div><div><h3>74.6%</h3><p>Average Score</p></div></div>
+			<div class="stat-card"><div class="stat-icon">✅</div><div><h3>82%</h3><p>Pass Percentage</p></div></div>
+		</div>
+
+		<div class="management-card"><div class="card-header"><div><h3>Report Filters</h3><p>Filter reports according to course, semester and date.</p></div></div>
+			<div class="filter-section">
+				<div class="form-group"><label for="courseFilter">Course</label><select id="courseFilter"><option>All Courses</option><option>CS101 - Python Programming</option><option>DS201 - Data Science</option><option>ML301 - Machine Learning</option><option>DB204 - Database Management</option><option>AI305 - Artificial Intelligence</option><option>WD210 - Web Development</option></select></div>
+				<div class="form-group"><label for="semesterFilter">Semester</label><select id="semesterFilter"><option>All Semesters</option><option>Semester 1</option><option>Semester 2</option></select></div>
+				<div class="form-group"><label for="fromDate">From Date</label><input type="date" id="fromDate"></div>
+				<div class="form-group"><label for="toDate">To Date</label><input type="date" id="toDate"></div>
+			</div>
+		</div>
+
+		<div class="chart-grid">
+			<div class="management-card"><div class="card-header"><div><h3>Course-wise Average Score</h3><p>Average student score for each course.</p></div></div><div class="chart-container"><canvas id="courseChart"></canvas></div></div>
+			<div class="management-card"><div class="card-header"><div><h3>Pass vs Fail</h3><p>Overall student pass and fail distribution.</p></div></div><div class="chart-container"><canvas id="passFailChart"></canvas></div></div>
+		</div>
+
+		<div class="management-card"><div class="card-header"><div><h3>Quiz-wise Performance</h3><p>Average scores achieved in recent quizzes.</p></div></div><div class="chart-container large-chart"><canvas id="quizChart"></canvas></div></div>
+
+		<div class="management-card"><div class="card-header"><div><h3>Top Student Performance</h3><p>Students with the highest quiz performance.</p></div></div>
+			<div class="table-container"><table class="management-table"><thead><tr><th>Rank</th><th>Student ID</th><th>Student Name</th><th>Course</th><th>Quizzes Taken</th><th>Average Score</th><th>Accuracy</th><th>Status</th></tr></thead><tbody>
+				<tr><td>1</td><td>STU001</td><td>Arun Kumar</td><td>Data Science</td><td>12</td><td>92%</td><td>95%</td><td><span class="status-badge active">Excellent</span></td></tr>
+				<tr><td>2</td><td>STU002</td><td>Priya Devi</td><td>Artificial Intelligence</td><td>11</td><td>89%</td><td>91%</td><td><span class="status-badge active">Excellent</span></td></tr>
+				<tr><td>3</td><td>STU003</td><td>Rahul Raj</td><td>Machine Learning</td><td>10</td><td>86%</td><td>88%</td><td><span class="status-badge active">Excellent</span></td></tr>
+				<tr><td>4</td><td>STU004</td><td>Meena S</td><td>Python Programming</td><td>9</td><td>82%</td><td>85%</td><td><span class="status-badge active">Good</span></td></tr>
+				<tr><td>5</td><td>STU005</td><td>Karthik M</td><td>Database Management</td><td>8</td><td>78%</td><td>81%</td><td><span class="status-badge active">Good</span></td></tr>
+				<tr><td>6</td><td>STU006</td><td>Divya R</td><td>Web Development</td><td>8</td><td>75%</td><td>78%</td><td><span class="status-badge active">Good</span></td></tr>
+			</tbody></table></div>
+		</div>
+
+		<div class="management-card"><div class="card-header"><h3>System Performance Summary</h3></div><div class="summary-grid">
+			<div class="summary-box"><h4>Highest Score</h4><strong>98%</strong><p>Best quiz performance</p></div><div class="summary-box"><h4>Lowest Score</h4><strong>32%</strong><p>Needs improvement</p></div><div class="summary-box"><h4>Average Score</h4><strong>74.6%</strong><p>Overall average</p></div><div class="summary-box"><h4>Pass Rate</h4><strong>82%</strong><p>Students passed</p></div>
+		</div></div>
+	</main>
+
+	<script>
+		function generateReport(){alert('Report generated successfully based on the selected filters.');}
+		const chart=(id,type,labels,data,label)=>new Chart(document.getElementById(id),{type,data:{labels,datasets:[{label,data,borderWidth:2,tension:.3}]},options:{responsive:true,maintainAspectRatio:false,scales:type==='doughnut'?{}:{y:{beginAtZero:true,max:100}}}});
+		chart('courseChart','bar',['Python','Data Science','Machine Learning','Database','AI','Web Development'],[82,78,75,72,80,69],'Average Score (%)');
+		chart('passFailChart','doughnut',['Passed','Failed'],[82,18],'Students');
+		chart('quizChart','line',['Python Basics','Data Science','ML Quiz','SQL Test','AI Test','Web Test'],[78,82,75,80,85,72],'Average Score (%)');
+	</script>
+</body>
+</html>

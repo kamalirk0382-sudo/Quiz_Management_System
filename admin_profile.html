@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Profile - Quiz Management System</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="main-header">
+	<div class="header-container">
+		<div class="logo-section">
+			<h1>Quiz Management System</h1>
+			<p>Admin Panel</p>
+		</div>
+		<nav class="main-nav">
+			<a href="admin_dashboard.html">Dashboard</a>
+			<a href="course_management.html">Courses</a>
+			<a href="student_management.html">Students</a>
+			<a href="faculty_management.html">Faculty</a>
+			<a href="student_enrollment.html">Enrollment</a>
+			<a href="faculty_assignment.html">Faculty Assignment</a>
+			<a href="quiz_management.html">Quizzes</a>
+			<a href="admin_reports.html">Reports</a>
+			<a href="admin_profile.html" class="active">Profile</a>
+		</nav>
+	</div>
+</header>
+
+<main class="management-container">
+	<div class="dashboard-heading">
+		<div>
+			<h2>Admin Profile</h2>
+			<p>Manage administrator information and account settings.</p>
+		</div>
+	</div>
+
+	<div class="profile-grid">
+		<div class="management-card">
+			<div class="card-header">
+				<div>
+					<h3>Administrator Information</h3>
+					<p>Basic administrator account details.</p>
+				</div>
+			</div>
+			<div class="profile-info">
+				<div class="profile-avatar">A</div>
+				<div class="profile-details">
+					<h2>Admin User</h2>
+					<p>System Administrator</p>
+				</div>
+			</div>
+			<div class="profile-fields">
+				<div class="profile-field"><label>Admin ID</label><p>ADM001</p></div>
+				<div class="profile-field"><label>Full Name</label><p>Admin User</p></div>
+				<div class="profile-field"><label>Email</label><p>admin@quizsystem.com</p></div>
+				<div class="profile-field"><label>Phone</label><p>9876543210</p></div>
+				<div class="profile-field"><label>Role</label><p>System Administrator</p></div>
+				<div class="profile-field"><label>Department</label><p>Administration</p></div>
+				<div class="profile-field"><label>Account Status</label><p><span class="status-badge active">Active</span></p></div>
+				<div class="profile-field"><label>Last Login</label><p>04-09-2026 09:30 AM</p></div>
+			</div>
+			<div class="form-actions">
+				<button class="primary-button" onclick="editProfile()">Edit Profile</button>
+			</div>
+		</div>
+
+		<div class="management-card">
+			<div class="card-header">
+				<div>
+					<h3>Account Settings</h3>
+					<p>Manage your administrator account.</p>
+				</div>
+			</div>
+			<div class="settings-list">
+				<div class="setting-item">
+					<div><h4>Change Password</h4><p>Update your account password regularly.</p></div>
+					<button class="table-button edit" onclick="changePassword()">Change</button>
+				</div>
+				<div class="setting-item">
+					<div><h4>Email Notifications</h4><p>Receive system activity notifications.</p></div>
+					<label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+				</div>
+				<div class="setting-item">
+					<div><h4>Security Alerts</h4><p>Receive alerts for important security events.</p></div>
+					<label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="management-card">
+		<div class="card-header"><div><h3>System Statistics</h3><p>Current overview of the quiz management system.</p></div></div>
+		<div class="stats-grid">
+			<div class="stat-card"><div class="stat-icon">👨‍🎓</div><div><h3>250</h3><p>Total Students</p></div></div>
+			<div class="stat-card"><div class="stat-icon">👨‍🏫</div><div><h3>25</h3><p>Total Faculty</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📚</div><div><h3>18</h3><p>Total Courses</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📝</div><div><h3>65</h3><p>Total Quizzes</p></div></div>
+		</div>
+	</div>
+
+	<div class="management-card">
+		<div class="card-header"><div><h3>Institution Information</h3><p>Details about the organization using the system.</p></div></div>
+		<div class="profile-fields">
+			<div class="profile-field"><label>Institution Name</label><p>Quiz Learning Institute</p></div>
+			<div class="profile-field"><label>Institution Type</label><p>Educational Institution</p></div>
+			<div class="profile-field"><label>Academic Year</label><p>2026-2027</p></div>
+			<div class="profile-field"><label>System Version</label><p>Quiz Management System v1.0</p></div>
+		</div>
+	</div>
+
+	<div class="management-card">
+		<div class="card-header"><div><h3>Recent Admin Activities</h3><p>Latest activities performed by the administrator.</p></div></div>
+		<div class="activity-list">
+			<div class="activity-item"><div class="activity-icon">📚</div><div><h4>New course added</h4><p>Data Science course was added to the system.</p><small>Today, 10:15 AM</small></div></div>
+			<div class="activity-item"><div class="activity-icon">👨‍🏫</div><div><h4>Faculty assigned</h4><p>A faculty member was assigned to Python Programming.</p><small>Yesterday, 03:20 PM</small></div></div>
+			<div class="activity-item"><div class="activity-icon">📝</div><div><h4>Quiz created</h4><p>Python Basics Test was created successfully.</p><small>Yesterday, 11:40 AM</small></div></div>
+			<div class="activity-item"><div class="activity-icon">👨‍🎓</div><div><h4>Student enrolled</h4><p>New students were enrolled into Data Science.</p><small>02-09-2026, 02:10 PM</small></div></div>
+		</div>
+	</div>
+
+	<div class="management-card logout-card">
+		<h3>Logout</h3>
+		<p>Sign out from the administrator account.</p>
+		<button class="delete-button" onclick="logoutAdmin()">Logout</button>
+	</div>
+</main>
+
+<script>
+function editProfile() {
+	alert("Edit Profile feature will be connected to the backend later.");
+}
+
+function changePassword() {
+	alert("Change Password feature will be connected to the backend later.");
+}
+
+function logoutAdmin() {
+	if (confirm("Are you sure you want to logout?")) {
+		alert("You have been logged out successfully.");
+		window.location.href = "login.html";
+	}
+}
+</script>
+</body>
+</html>

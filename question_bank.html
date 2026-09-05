@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Question Bank - Faculty | Quiz Master</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<header class="main-header">
+		<div class="logo"><h1>Quiz Master</h1></div>
+		<nav class="main-nav">
+			<a href="faculty_dashboard.html">Dashboard</a>
+			<a href="faculty_courses.html">My Courses</a>
+			<a href="create_quiz.html">Create Quiz</a>
+			<a href="add_question.html">Add Question</a>
+			<a href="question_bank.html" class="active">Question Bank</a>
+			<a href="login.html">Logout</a>
+		</nav>
+	</header>
+
+	<main class="management-container">
+		<div class="dashboard-heading">
+			<div>
+				<h2>Question Bank</h2>
+				<p>View, search, edit and manage quiz questions.</p>
+			</div>
+			<div><a href="add_question.html" class="primary-button">+ Add Question</a></div>
+		</div>
+
+		<div class="management-card">
+			<h3>Search &amp; Filter Questions</h3>
+			<div class="form-row">
+				<div class="form-group">
+					<label for="searchQuestion">Search Question</label>
+					<input type="text" id="searchQuestion" placeholder="Search by question...">
+				</div>
+				<div class="form-group">
+					<label for="filterCourse">Course</label>
+					<select id="filterCourse">
+						<option value="">All Courses</option>
+						<option>Python Programming</option>
+						<option>SQL Fundamentals</option>
+						<option>Data Science</option>
+						<option>Machine Learning</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="filterDifficulty">Difficulty</label>
+					<select id="filterDifficulty">
+						<option value="">All Levels</option>
+						<option>Easy</option>
+						<option>Medium</option>
+						<option>Hard</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="management-card">
+			<div class="table-header">
+				<div><h3>All Questions</h3><p>Total Questions: <strong id="questionCount">6</strong></p></div>
+			</div>
+			<div class="table-container">
+				<table class="management-table">
+					<thead><tr><th>ID</th><th>Question</th><th>Course</th><th>Difficulty</th><th>Marks</th><th>Correct Answer</th><th>Actions</th></tr></thead>
+					<tbody id="questionTableBody">
+						<tr><td>Q001</td><td>Which keyword is used to define a function in Python?</td><td>Python Programming</td><td><span class="status-badge status-easy">Easy</span></td><td>2</td><td>B - def</td><td><button class="table-button edit-button" onclick="editQuestion('Q001')">Edit</button> <button class="table-button delete-button" onclick="deleteQuestion('Q001')">Delete</button></td></tr>
+						<tr><td>Q002</td><td>Which data type is used to store True or False values in Python?</td><td>Python Programming</td><td><span class="status-badge status-easy">Easy</span></td><td>2</td><td>B - Boolean</td><td><button class="table-button edit-button" onclick="editQuestion('Q002')">Edit</button> <button class="table-button delete-button" onclick="deleteQuestion('Q002')">Delete</button></td></tr>
+						<tr><td>Q003</td><td>Which SQL command is used to retrieve data from a database?</td><td>SQL Fundamentals</td><td><span class="status-badge status-easy">Easy</span></td><td>2</td><td>A - SELECT</td><td><button class="table-button edit-button" onclick="editQuestion('Q003')">Edit</button> <button class="table-button delete-button" onclick="deleteQuestion('Q003')">Delete</button></td></tr>
+						<tr><td>Q004</td><td>Which SQL clause is used to filter records based on a condition?</td><td>SQL Fundamentals</td><td><span class="status-badge status-medium">Medium</span></td><td>2</td><td>C - WHERE</td><td><button class="table-button edit-button" onclick="editQuestion('Q004')">Edit</button> <button class="table-button delete-button" onclick="deleteQuestion('Q004')">Delete</button></td></tr>
+						<tr><td>Q005</td><td>Which algorithm is commonly used for classification problems?</td><td>Machine Learning</td><td><span class="status-badge status-medium">Medium</span></td><td>2</td><td>D - Decision Tree</td><td><button class="table-button edit-button" onclick="editQuestion('Q005')">Edit</button> <button class="table-button delete-button" onclick="deleteQuestion('Q005')">Delete</button></td></tr>
+						<tr><td>Q006</td><td>Which technique is used to reduce the dimensionality of a dataset?</td><td>Data Science</td><td><span class="status-badge status-hard">Hard</span></td><td>2</td><td>A - PCA</td><td><button class="table-button edit-button" onclick="editQuestion('Q006')">Edit</button> <button class="table-button delete-button" onclick="deleteQuestion('Q006')">Delete</button></td></tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+
+	<footer class="main-footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+
+	<script>
+		const searchInput = document.getElementById('searchQuestion');
+		const courseFilter = document.getElementById('filterCourse');
+		const difficultyFilter = document.getElementById('filterDifficulty');
+		const tableBody = document.getElementById('questionTableBody');
+		const questionCount = document.getElementById('questionCount');
+
+		function filterQuestions() {
+			const searchText = searchInput.value.toLowerCase();
+			const rows = tableBody.querySelectorAll('tr');
+			let visibleCount = 0;
+			rows.forEach(row => {
+				const matches = row.cells[1].textContent.toLowerCase().includes(searchText) &&
+					(!courseFilter.value || row.cells[2].textContent.trim() === courseFilter.value) &&
+					(!difficultyFilter.value || row.cells[3].textContent.trim() === difficultyFilter.value);
+				row.style.display = matches ? '' : 'none';
+				if (matches) visibleCount++;
+			});
+			questionCount.textContent = visibleCount;
+		}
+
+		searchInput.addEventListener('input', filterQuestions);
+		courseFilter.addEventListener('change', filterQuestions);
+		difficultyFilter.addEventListener('change', filterQuestions);
+		function editQuestion(id) { alert('Edit Question\n\nQuestion ID: ' + id + '\n\nThe edit functionality will be connected to the database later.'); }
+		function deleteQuestion(id) { if (confirm('Are you sure you want to delete ' + id + '?')) alert(id + ' has been deleted successfully.'); }
+	</script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignments - Quiz Master</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="top-header">
+
+        <div class="logo">
+            Quiz Master
+        </div>
+
+        <nav>
+            <a href="student_dashboard.html">Dashboard</a>
+            <a href="my_courses.html">My Courses</a>
+            <a href="available_quizzes.html">Quizzes</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="assignments-container">
+
+        <!-- Page Heading -->
+        <section class="page-heading">
+
+            <h1>Assignments</h1>
+
+            <p>
+                View your assignments, deadlines, marks, and submission status.
+            </p>
+
+        </section>
+
+
+        <!-- Search and Filter -->
+        <section class="assignment-filter">
+
+            <div class="filter-group">
+
+                <label for="searchAssignment">
+                    Search Assignments
+                </label>
+
+                <input
+                    type="text"
+                    id="searchAssignment"
+                    placeholder="Search by assignment name..."
+                >
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label for="courseFilter">
+                    Course
+                </label>
+
+                <select id="courseFilter">
+
+                    <option value="all">
+                        All Courses
+                    </option>
+
+                    <option value="python">
+                        Python Programming
+                    </option>
+
+                    <option value="sql">
+                        SQL & Database
+                    </option>
+
+                    <option value="data-science">
+                        Data Science
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label for="statusFilter">
+                    Status
+                </label>
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="pending">
+                        Pending
+                    </option>
+
+                    <option value="submitted">
+                        Submitted
+                    </option>
+
+                    <option value="overdue">
+                        Overdue
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- Assignment Cards -->
+        <section class="assignment-grid">
+
+
+            <!-- Assignment 1 -->
+            <div class="assignment-card">
+
+                <div class="assignment-top">
+
+                    <span class="assignment-icon">
+                        📝
+                    </span>
+
+                    <span class="assignment-status pending">
+                        Pending
+                    </span>
+
+                </div>
+
+
+                <h2>
+                    Python Programming Assignment
+                </h2>
+
+                <p class="assignment-description">
+
+                    Write Python programs using variables,
+                    data types, operators, conditional statements,
+                    and loops.
+
+                </p>
+
+
+                <div class="assignment-details">
+
+                    <div>
+                        <strong>Course</strong>
+                        <span>Python Programming</span>
+                    </div>
+
+                    <div>
+                        <strong>Due Date</strong>
+                        <span>15 September 2026</span>
+                    </div>
+
+                    <div>
+                        <strong>Total Marks</strong>
+                        <span>20 Marks</span>
+                    </div>
+
+                </div>
+
+
+                <button class="assignment-button">
+                    View Assignment →
+                </button>
+
+            </div>
+
+
+
+            <!-- Assignment 2 -->
+            <div class="assignment-card">
+
+                <div class="assignment-top">
+
+                    <span class="assignment-icon">
+                        💻
+                    </span>
+
+                    <span class="assignment-status submitted">
+                        Submitted
+                    </span>
+
+                </div>
+
+
+                <h2>
+                    SQL Query Practice
+                </h2>
+
+                <p class="assignment-description">
+
+                    Write SQL queries using SELECT, WHERE,
+                    GROUP BY, ORDER BY, aggregate functions,
+                    and JOIN operations.
+
+                </p>
+
+
+                <div class="assignment-details">
+
+                    <div>
+                        <strong>Course</strong>
+                        <span>SQL & Database</span>
+                    </div>
+
+                    <div>
+                        <strong>Due Date</strong>
+                        <span>10 September 2026</span>
+                    </div>
+
+                    <div>
+                        <strong>Total Marks</strong>
+                        <span>25 Marks</span>
+                    </div>
+
+                </div>
+
+
+                <button class="assignment-button">
+                    View Submission →
+                </button>
+
+            </div>
+
+
+
+            <!-- Assignment 3 -->
+            <div class="assignment-card">
+
+                <div class="assignment-top">
+
+                    <span class="assignment-icon">
+                        📊
+                    </span>
+
+                    <span class="assignment-status pending">
+                        Pending
+                    </span>
+
+                </div>
+
+
+                <h2>
+                    Data Analysis Project
+                </h2>
+
+                <p class="assignment-description">
+
+                    Perform data cleaning, exploratory data analysis,
+                    visualization, and generate meaningful insights
+                    from a given dataset.
+
+                </p>
+
+
+                <div class="assignment-details">
+
+                    <div>
+                        <strong>Course</strong>
+                        <span>Data Science</span>
+                    </div>
+
+                    <div>
+                        <strong>Due Date</strong>
+                        <span>20 September 2026</span>
+                    </div>
+
+                    <div>
+                        <strong>Total Marks</strong>
+                        <span>30 Marks</span>
+                    </div>
+
+                </div>
+
+
+                <button class="assignment-button">
+                    View Assignment →
+                </button>
+
+            </div>
+
+
+
+            <!-- Assignment 4 -->
+            <div class="assignment-card">
+
+                <div class="assignment-top">
+
+                    <span class="assignment-icon">
+                        🗄️
+                    </span>
+
+                    <span class="assignment-status overdue">
+                        Overdue
+                    </span>
+
+                </div>
+
+
+                <h2>
+                    Database Design Assignment
+                </h2>
+
+                <p class="assignment-description">
+
+                    Design a database using tables, primary keys,
+                    foreign keys, relationships, and normalization
+                    concepts.
+
+                </p>
+
+
+                <div class="assignment-details">
+
+                    <div>
+                        <strong>Course</strong>
+                        <span>SQL & Database</span>
+                    </div>
+
+                    <div>
+                        <strong>Due Date</strong>
+                        <span>05 September 2026</span>
+                    </div>
+
+                    <div>
+                        <strong>Total Marks</strong>
+                        <span>20 Marks</span>
+                    </div>
+
+                </div>
+
+
+                <button class="assignment-button">
+                    View Assignment →
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Simple Search and Filter -->
+    <script>
+
+        const searchInput =
+            document.getElementById("searchAssignment");
+
+        const courseFilter =
+            document.getElementById("courseFilter");
+
+        const statusFilter =
+            document.getElementById("statusFilter");
+
+        const assignmentCards =
+            document.querySelectorAll(".assignment-card");
+
+
+        function filterAssignments() {
+
+            const searchText =
+                searchInput.value.toLowerCase();
+
+            const selectedCourse =
+                courseFilter.value;
+
+            const selectedStatus =
+                statusFilter.value;
+
+
+            assignmentCards.forEach(card => {
+
+                const assignmentText =
+                    card.textContent.toLowerCase();
+
+                const statusElement =
+                    card.querySelector(".assignment-status");
+
+                const status =
+                    statusElement.textContent
+                    .toLowerCase();
+
+                const courseText =
+                    card.querySelector(
+                        ".assignment-details div:nth-child(1) span"
+                    ).textContent.toLowerCase();
+
+
+                const matchesSearch =
+                    assignmentText.includes(searchText);
+
+
+                const matchesCourse =
+                    selectedCourse === "all" ||
+                    courseText.includes(
+                        selectedCourse === "data-science"
+                            ? "data science"
+                            : selectedCourse
+                    );
+
+
+                const matchesStatus =
+                    selectedStatus === "all" ||
+                    status === selectedStatus;
+
+
+                if (
+                    matchesSearch &&
+                    matchesCourse &&
+                    matchesStatus
+                ) {
+
+                    card.style.display = "block";
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+
+        searchInput.addEventListener(
+            "input",
+            filterAssignments
+        );
+
+        courseFilter.addEventListener(
+            "change",
+            filterAssignments
+        );
+
+        statusFilter.addEventListener(
+            "change",
+            filterAssignments
+        );
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Faculty Dashboard - Quiz Master</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="top-header">
+		<div class="logo">Quiz Master</div>
+		<nav>
+			<a href="faculty_dashboard.html">Dashboard</a>
+			<a href="faculty_courses.html">My Courses</a>
+			<a href="create_quiz.html">Create Quiz</a>
+			<a href="login.html">Logout</a>
+		</nav>
+	</header>
+
+	<main class="dashboard-container">
+		<section class="dashboard-heading">
+			<h1>Welcome, Faculty!</h1>
+			<p>Manage your courses, quizzes, students, and academic activities from one place.</p>
+		</section>
+
+		<section class="stats-grid">
+			<div class="stat-card"><h3>Total Courses</h3><strong>4</strong></div>
+			<div class="stat-card"><h3>Total Students</h3><strong>120</strong></div>
+			<div class="stat-card"><h3>Total Quizzes</h3><strong>18</strong></div>
+			<div class="stat-card"><h3>Assignments</h3><strong>12</strong></div>
+		</section>
+
+		<section class="dashboard-heading">
+			<h2 style="color:#244b7a;margin-bottom:20px">Quick Actions</h2>
+		</section>
+		<section class="dashboard-grid">
+			<div class="dashboard-card"><div class="action-icon">📝</div><h2>Create Quiz</h2><p>Create a new quiz by adding questions, marks, difficulty level, and time limit.</p><a href="create_quiz.html">Create Quiz →</a></div>
+			<div class="dashboard-card"><div class="action-icon">❓</div><h2>Add Question</h2><p>Add multiple-choice questions to the question bank for future quizzes.</p><a href="add_question.html">Add Question →</a></div>
+			<div class="dashboard-card"><div class="action-icon">📊</div><h2>Student Results</h2><p>View student quiz scores, performance, accuracy, and overall results.</p><a href="student_results.html">View Results →</a></div>
+			<div class="dashboard-card"><div class="action-icon">📚</div><h2>Manage Courses</h2><p>View your assigned courses and manage course-related learning activities.</p><a href="faculty_courses.html">Manage Courses →</a></div>
+			<div class="dashboard-card"><div class="action-icon">📖</div><h2>Learning Materials</h2><p>Upload and manage study materials, notes, documents, and reference resources.</p><a href="faculty_materials.html">Manage Materials →</a></div>
+			<div class="dashboard-card"><div class="action-icon">📋</div><h2>Assignments</h2><p>Create assignments, set deadlines, and monitor student submissions.</p><a href="faculty_assignments.html">Manage Assignments →</a></div>
+		</section>
+
+		<section class="dashboard-section">
+			<div class="dashboard-heading"><h2 style="color:#244b7a">Recent Quizzes</h2><p>Recently created quizzes and their current status.</p></div>
+			<div class="table-container">
+				<table class="data-table">
+					<thead><tr><th>Quiz</th><th>Course</th><th>Questions</th><th>Marks</th><th>Status</th></tr></thead>
+					<tbody>
+						<tr><td>Python Basics Quiz</td><td>Python Programming</td><td>20</td><td>40</td><td><span class="badge badge-success">Published</span></td></tr>
+						<tr><td>SQL Fundamentals</td><td>SQL &amp; Database</td><td>15</td><td>30</td><td><span class="badge badge-success">Published</span></td></tr>
+						<tr><td>Data Science Introduction</td><td>Data Science</td><td>25</td><td>50</td><td><span class="badge badge-warning">Draft</span></td></tr>
+						<tr><td>Machine Learning Basics</td><td>Machine Learning</td><td>20</td><td>40</td><td><span class="badge badge-info">Scheduled</span></td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="dashboard-section">
+			<div class="dashboard-heading"><h2 style="color:#244b7a">Student Performance Overview</h2><p>Summary of student performance across your quizzes.</p></div>
+			<div class="stats-grid">
+				<div class="stat-card"><h3>Average Score</h3><strong>78%</strong></div>
+				<div class="stat-card"><h3>Highest Score</h3><strong>98%</strong></div>
+				<div class="stat-card"><h3>Pass Percentage</h3><strong>86%</strong></div>
+				<div class="stat-card"><h3>Pending Results</h3><strong>7</strong></div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+</body>
+</html>

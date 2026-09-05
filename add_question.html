@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Question - Faculty | Quiz Master</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="main-header">
+
+        <div class="logo">
+            <h1>Quiz Master</h1>
+        </div>
+
+        <nav class="main-nav">
+            <a href="faculty_dashboard.html">Dashboard</a>
+            <a href="faculty_courses.html">My Courses</a>
+            <a href="create_quiz.html">Create Quiz</a>
+            <a href="add_question.html" class="active">Add Question</a>
+            <a href="login.html">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="management-container">
+
+        <div class="dashboard-heading">
+
+            <div>
+                <h2>Add Quiz Question</h2>
+
+                <p>
+                    Add multiple-choice questions to your quiz.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION FORM -->
+        <div class="management-card">
+
+            <form id="questionForm">
+
+
+                <!-- QUIZ SELECTION -->
+                <div class="form-group">
+
+                    <label for="quiz">
+                        Select Quiz
+                    </label>
+
+                    <select id="quiz" name="quiz" required>
+
+                        <option value="">
+                            Select Quiz
+                        </option>
+
+                        <option value="python-basics">
+                            Python Basics Quiz
+                        </option>
+
+                        <option value="sql-fundamentals">
+                            SQL Fundamentals Quiz
+                        </option>
+
+                        <option value="data-science">
+                            Data Science Quiz
+                        </option>
+
+                        <option value="machine-learning">
+                            Machine Learning Quiz
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- QUESTION -->
+                <div class="form-group">
+
+                    <label for="question">
+                        Question
+                    </label>
+
+                    <textarea
+                        id="question"
+                        name="question"
+                        placeholder="Enter the question"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- OPTIONS -->
+                <div class="form-group">
+
+                    <label>
+                        Answer Options
+                    </label>
+
+                    <input
+                        type="text"
+                        id="optionA"
+                        name="optionA"
+                        placeholder="Option A"
+                        required
+                    >
+
+                    <br>
+
+                    <input
+                        type="text"
+                        id="optionB"
+                        name="optionB"
+                        placeholder="Option B"
+                        required
+                    >
+
+                    <br>
+
+                    <input
+                        type="text"
+                        id="optionC"
+                        name="optionC"
+                        placeholder="Option C"
+                        required
+                    >
+
+                    <br>
+
+                    <input
+                        type="text"
+                        id="optionD"
+                        name="optionD"
+                        placeholder="Option D"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CORRECT ANSWER -->
+                <div class="form-group">
+
+                    <label for="correctAnswer">
+                        Correct Answer
+                    </label>
+
+                    <select
+                        id="correctAnswer"
+                        name="correctAnswer"
+                        required
+                    >
+
+                        <option value="">
+                            Select Correct Answer
+                        </option>
+
+                        <option value="A">
+                            Option A
+                        </option>
+
+                        <option value="B">
+                            Option B
+                        </option>
+
+                        <option value="C">
+                            Option C
+                        </option>
+
+                        <option value="D">
+                            Option D
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- MARKS -->
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="marks">
+                            Marks
+                        </label>
+
+                        <input
+                            type="number"
+                            id="marks"
+                            name="marks"
+                            placeholder="Example: 2"
+                            min="0"
+                            step="0.5"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="negativeMarks">
+                            Negative Marks
+                        </label>
+
+                        <input
+                            type="number"
+                            id="negativeMarks"
+                            name="negativeMarks"
+                            placeholder="Example: 0.5"
+                            min="0"
+                            step="0.5"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- DIFFICULTY -->
+                <div class="form-group">
+
+                    <label for="difficulty">
+                        Difficulty Level
+                    </label>
+
+                    <select
+                        id="difficulty"
+                        name="difficulty"
+                        required
+                    >
+
+                        <option value="">
+                            Select Difficulty
+                        </option>
+
+                        <option value="easy">
+                            Easy
+                        </option>
+
+                        <option value="medium">
+                            Medium
+                        </option>
+
+                        <option value="hard">
+                            Hard
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- EXPLANATION -->
+                <div class="form-group">
+
+                    <label for="explanation">
+                        Explanation
+                    </label>
+
+                    <textarea
+                        id="explanation"
+                        name="explanation"
+                        placeholder="Enter explanation for the correct answer (optional)"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- INFORMATION -->
+                <div class="alert alert-info">
+
+                    <strong>Question Settings:</strong>
+
+                    <p>
+                        Students will receive marks for selecting the
+                        correct answer and negative marks for selecting
+                        the wrong answer.
+                    </p>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="form-actions">
+
+                    <a
+                        href="faculty_dashboard.html"
+                        class="secondary-button"
+                    >
+                        Cancel
+                    </a>
+
+                    <button
+                        type="reset"
+                        class="secondary-button"
+                    >
+                        Clear
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Add Question
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+
+        <p>
+            © 2026 Quiz Master. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        document
+            .getElementById("questionForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                alert(
+                    "Question added successfully!\n\n" +
+                    "The question has been added to the selected quiz."
+                );
+
+                this.reset();
+
+            });
+
+    </script>
+
+
+</body>
+</html>

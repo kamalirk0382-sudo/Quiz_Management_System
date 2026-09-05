@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Available Quizzes - Quiz Master</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">
+            QUIZ MASTER
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="student_dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="my_courses.html">
+                My Courses
+            </a>
+
+            <a href="available_quizzes.html">
+                Quizzes
+            </a>
+
+            <a href="#">
+                Results
+            </a>
+
+            <a href="login.html">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main>
+
+        <section class="quizzes-page">
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <h1>
+                    Available Quizzes
+                </h1>
+
+                <p>
+                    Choose a quiz and test your knowledge.
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 QUIZ CONTAINER
+            ========================== -->
+
+            <div class="quizzes-container">
+
+
+                <!-- =================================================
+                     PYTHON QUIZ
+                ================================================== -->
+
+                <div class="quiz-card">
+
+                    <div class="quiz-card-top">
+
+                        <div class="quiz-card-icon">
+                            💻
+                        </div>
+
+                        <span class="difficulty easy">
+                            Easy
+                        </span>
+
+                    </div>
+
+
+                    <h2>
+                        Python Basics Quiz
+                    </h2>
+
+
+                    <p class="quiz-subject">
+                        Subject: Python Programming
+                    </p>
+
+
+                    <p class="quiz-description">
+
+                        Test your knowledge of Python variables,
+                        data types, operators, conditions and loops.
+
+                    </p>
+
+
+                    <div class="quiz-details">
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                📝 Questions
+                            </span>
+
+                            <strong>
+                                20
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ⏱️ Duration
+                            </span>
+
+                            <strong>
+                                30 Minutes
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ⭐ Total Marks
+                            </span>
+
+                            <strong>
+                                40
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ➖ Negative Marking
+                            </span>
+
+                            <strong>
+                                -0.5
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="quiz-card-footer">
+
+                        <span class="quiz-status">
+                            Available
+                        </span>
+
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            onclick="startQuiz();">
+
+                            Start Quiz
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MACHINE LEARNING QUIZ
+                ================================================== -->
+
+                <div class="quiz-card">
+
+                    <div class="quiz-card-top">
+
+                        <div class="quiz-card-icon">
+                            🧠
+                        </div>
+
+                        <span class="difficulty medium">
+                            Medium
+                        </span>
+
+                    </div>
+
+
+                    <h2>
+                        Machine Learning Quiz
+                    </h2>
+
+
+                    <p class="quiz-subject">
+                        Subject: Artificial Intelligence
+                    </p>
+
+
+                    <p class="quiz-description">
+
+                        Evaluate your understanding of supervised
+                        learning, unsupervised learning and
+                        ML algorithms.
+
+                    </p>
+
+
+                    <div class="quiz-details">
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                📝 Questions
+                            </span>
+
+                            <strong>
+                                25
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ⏱️ Duration
+                            </span>
+
+                            <strong>
+                                40 Minutes
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ⭐ Total Marks
+                            </span>
+
+                            <strong>
+                                50
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ➖ Negative Marking
+                            </span>
+
+                            <strong>
+                                -0.5
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="quiz-card-footer">
+
+                        <span class="quiz-status">
+                            Available
+                        </span>
+
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            onclick="startQuiz();">
+
+                            Start Quiz
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SQL QUIZ
+                ================================================== -->
+
+                <div class="quiz-card">
+
+                    <div class="quiz-card-top">
+
+                        <div class="quiz-card-icon">
+                            🗄️
+                        </div>
+
+                        <span class="difficulty hard">
+                            Hard
+                        </span>
+
+                    </div>
+
+
+                    <h2>
+                        SQL Fundamentals Quiz
+                    </h2>
+
+
+                    <p class="quiz-subject">
+                        Subject: Database Management
+                    </p>
+
+
+                    <p class="quiz-description">
+
+                        Test your knowledge of SQL queries,
+                        joins, subqueries, functions and
+                        database concepts.
+
+                    </p>
+
+
+                    <div class="quiz-details">
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                📝 Questions
+                            </span>
+
+                            <strong>
+                                15
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ⏱️ Duration
+                            </span>
+
+                            <strong>
+                                20 Minutes
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ⭐ Total Marks
+                            </span>
+
+                            <strong>
+                                30
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ➖ Negative Marking
+                            </span>
+
+                            <strong>
+                                -0.5
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="quiz-card-footer">
+
+                        <span class="quiz-status">
+                            Available
+                        </span>
+
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            onclick="startQuiz();">
+
+                            Start Quiz
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     DATA SCIENCE QUIZ
+                ================================================== -->
+
+                <div class="quiz-card">
+
+                    <div class="quiz-card-top">
+
+                        <div class="quiz-card-icon">
+                            📊
+                        </div>
+
+                        <span class="difficulty medium">
+                            Medium
+                        </span>
+
+                    </div>
+
+
+                    <h2>
+                        Data Science Quiz
+                    </h2>
+
+
+                    <p class="quiz-subject">
+                        Subject: Data Science
+                    </p>
+
+
+                    <p class="quiz-description">
+
+                        Test your understanding of data analysis,
+                        statistics, visualization and
+                        machine learning.
+
+                    </p>
+
+
+                    <div class="quiz-details">
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                📝 Questions
+                            </span>
+
+                            <strong>
+                                20
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ⏱️ Duration
+                            </span>
+
+                            <strong>
+                                30 Minutes
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ⭐ Total Marks
+                            </span>
+
+                            <strong>
+                                40
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-detail">
+
+                            <span>
+                                ➖ Negative Marking
+                            </span>
+
+                            <strong>
+                                -0.5
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="quiz-card-footer">
+
+                        <span class="quiz-status">
+                            Available
+                        </span>
+
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            onclick="startQuiz();">
+
+                            Start Quiz
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Quiz Master. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function startQuiz() {
+
+            window.location.href = "quiz_instructions.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

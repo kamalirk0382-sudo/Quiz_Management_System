@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Dashboard - Quiz Master</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="main-header">
+		<div class="logo"><h1>Quiz Master</h1></div>
+		<nav class="main-nav">
+			<a href="admin_dashboard.html" class="active">Dashboard</a>
+			<a href="course_management.html">Courses</a>
+			<a href="student_management.html">Students</a>
+			<a href="faculty_management.html">Faculty</a>
+			<a href="student_enrollment.html">Enrollment</a>
+			<a href="faculty_assignment.html">Faculty Assignment</a>
+			<a href="quiz_management.html">Quizzes</a>
+			<a href="admin_reports.html">Reports</a>
+			<a href="admin_profile.html">Profile</a>
+			<a href="login.html">Logout</a>
+		</nav>
+	</header>
+
+	<main class="management-container">
+		<div class="dashboard-heading">
+			<div>
+				<h2>Admin Dashboard</h2>
+				<p>Manage students, faculty, courses, quizzes and system activities.</p>
+			</div>
+		</div>
+
+		<div class="stats-grid">
+			<div class="stat-card"><div class="stat-icon">👨‍🎓</div><div><h3>250</h3><p>Total Students</p></div></div>
+			<div class="stat-card"><div class="stat-icon">👨‍🏫</div><div><h3>25</h3><p>Total Faculty</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📚</div><div><h3>18</h3><p>Total Courses</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📝</div><div><h3>65</h3><p>Total Quizzes</p></div></div>
+		</div>
+		<div class="stats-grid">
+			<div class="stat-card"><div class="stat-icon">🟢</div><div><h3>225</h3><p>Active Students</p></div></div>
+			<div class="stat-card"><div class="stat-icon">✅</div><div><h3>23</h3><p>Active Faculty</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📋</div><div><h3>42</h3><p>Assignments</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📖</div><div><h3>86</h3><p>Learning Materials</p></div></div>
+		</div>
+
+		<section class="management-card">
+			<h3>Quick Management</h3>
+			<div class="stats-grid">
+				<div class="management-card"><h3>Student Management</h3><p>Add, view, edit and manage student accounts.</p><button class="primary-button" onclick="openPage('student_management.html')">Manage Students</button></div>
+				<div class="management-card"><h3>Faculty Management</h3><p>Manage faculty accounts and assignments.</p><button class="primary-button" onclick="openPage('faculty_management.html')">Manage Faculty</button></div>
+				<div class="management-card"><h3>Course Management</h3><p>Create and manage courses in the system.</p><button class="primary-button" onclick="openPage('course_management.html')">Manage Courses</button></div>
+				<div class="management-card"><h3>Quiz Management</h3><p>Monitor and manage quizzes created by faculty.</p><button class="primary-button" onclick="openPage('quiz_management.html')">Manage Quizzes</button></div>
+			</div>
+		</section>
+
+		<section class="management-card">
+			<h3>Recent Activities</h3>
+			<div class="table-container"><table class="management-table">
+				<thead><tr><th>Activity</th><th>User</th><th>Date</th><th>Status</th></tr></thead>
+				<tbody>
+					<tr><td>New student registered</td><td>Priya Sharma</td><td>03-09-2026</td><td><span class="status-badge status-active">Completed</span></td></tr>
+					<tr><td>New course created</td><td>Dr. Arun Kumar</td><td>03-09-2026</td><td><span class="status-badge status-active">Completed</span></td></tr>
+					<tr><td>Quiz published</td><td>Dr. Meena Raj</td><td>02-09-2026</td><td><span class="status-badge status-active">Published</span></td></tr>
+					<tr><td>Faculty account created</td><td>Dr. Karthik</td><td>01-09-2026</td><td><span class="status-badge status-active">Completed</span></td></tr>
+					<tr><td>Assignment scheduled</td><td>Dr. Arun Kumar</td><td>01-09-2026</td><td><span class="status-badge status-active">Active</span></td></tr>
+				</tbody>
+			</table></div>
+		</section>
+
+		<section class="management-card">
+			<h3>System Summary</h3>
+			<div class="form-row">
+				<div class="form-group"><label>System Status</label><input type="text" value="All Systems Operational" disabled></div>
+				<div class="form-group"><label>Last Database Backup</label><input type="text" value="03-09-2026 02:00 AM" disabled></div>
+			</div>
+			<div class="form-row">
+				<div class="form-group"><label>Current Academic Year</label><input type="text" value="2026 - 2027" disabled></div>
+				<div class="form-group"><label>Platform</label><input type="text" value="Quiz Master" disabled></div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="main-footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+	<script>function openPage(page) { window.location.href = page; }</script>
+</body>
+</html>

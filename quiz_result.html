@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Performance Analysis - Quiz Master</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION BAR
+         ===================================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+
+        <div class="container">
+
+            <!-- Logo -->
+
+            <a
+                class="navbar-brand fw-bold"
+                href="student_dashboard.html"
+            >
+                Quiz Master
+            </a>
+
+
+            <!-- Navigation -->
+
+            <div class="performance-nav">
+
+                <a href="student_dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="my_courses.html">
+                    My Courses
+                </a>
+
+                <a href="available_quizzes.html">
+                    Quizzes
+                </a>
+
+                <a href="quiz_result.html">
+                    Results
+                </a>
+
+            </div>
+
+
+            <!-- Profile -->
+
+            <a
+                href="student_profile.html"
+                class="profile-button"
+            >
+                👤 Profile
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="performance-page">
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <div class="performance-header">
+
+            <div>
+
+                <p class="page-label">
+                    STUDENT ANALYTICS
+                </p>
+
+                <h1>
+                    Performance Analysis
+                </h1>
+
+                <p>
+                    Track your quiz performance, identify your
+                    strengths, and improve your weak areas.
+                </p>
+
+            </div>
+
+
+            <!-- Student Information -->
+
+            <div class="student-info-card">
+
+                <div class="student-avatar">
+                    K
+                </div>
+
+                <div>
+
+                    <strong>
+                        Kamali Radhakrishnan
+                    </strong>
+
+                    <span>
+                        B.Tech AI & Data Science
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SUMMARY CARDS
+             ================================================= -->
+
+        <div class="performance-summary">
+
+
+            <!-- Overall Score -->
+
+            <div class="performance-card">
+
+                <div class="performance-card-icon">
+                    🏆
+                </div>
+
+                <div>
+
+                    <span>
+                        Overall Score
+                    </span>
+
+                    <h2 id="overallScore">
+                        0%
+                    </h2>
+
+                    <small class="positive-text">
+                        Based on latest quiz
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Accuracy -->
+
+            <div class="performance-card">
+
+                <div class="performance-card-icon">
+                    🎯
+                </div>
+
+                <div>
+
+                    <span>
+                        Accuracy
+                    </span>
+
+                    <h2 id="accuracy">
+                        0%
+                    </h2>
+
+                    <small class="positive-text">
+                        Based on attempted questions
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quizzes Completed -->
+
+            <div class="performance-card">
+
+                <div class="performance-card-icon">
+                    📝
+                </div>
+
+                <div>
+
+                    <span>
+                        Quizzes Completed
+                    </span>
+
+                    <h2 id="quizzesCompleted">
+                        1
+                    </h2>
+
+                    <small>
+                        This semester
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Average Score -->
+
+            <div class="performance-card">
+
+                <div class="performance-card-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <span>
+                        Average Score
+                    </span>
+
+                    <h2 id="averageScore">
+                        0/40
+                    </h2>
+
+                    <small>
+                        Latest quiz performance
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CHART SECTION
+             ================================================= -->
+
+        <div class="performance-grid">
+
+
+            <!-- Quiz Performance Chart -->
+
+            <div class="analysis-card chart-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h2>
+                            Quiz Performance
+                        </h2>
+
+                        <p>
+                            Your latest quiz score
+                        </p>
+
+                    </div>
+
+                    <select id="chartFilter">
+
+                        <option value="all">
+                            Latest Quiz
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="chart-container">
+
+                    <canvas id="performanceChart"></canvas>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Answer Analysis Chart -->
+
+            <div class="analysis-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h2>
+                            Answer Analysis
+                        </h2>
+
+                        <p>
+                            Overall answer distribution
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="answer-chart-container">
+
+                    <canvas id="answerChart"></canvas>
+
+                </div>
+
+
+                <div class="answer-legend">
+
+
+                    <!-- Correct -->
+
+                    <div>
+
+                        <span class="legend-dot correct-dot"></span>
+
+                        Correct
+
+                        <strong id="correctPercentage">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Wrong -->
+
+                    <div>
+
+                        <span class="legend-dot wrong-dot"></span>
+
+                        Wrong
+
+                        <strong id="wrongPercentage">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Unanswered -->
+
+                    <div>
+
+                        <span class="legend-dot unanswered-dot"></span>
+
+                        Unanswered
+
+                        <strong id="unansweredPercentage">
+                            0%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             STRENGTHS AND WEAK AREAS
+             ================================================= -->
+
+        <div class="performance-grid">
+
+
+            <!-- Strong Areas -->
+
+            <div class="analysis-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h2>
+                            💪 Strong Areas
+                        </h2>
+
+                        <p>
+                            Topics where you perform well
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="topic-list">
+
+
+                    <div class="topic-item">
+
+                        <div class="topic-details">
+
+                            <strong>
+                                Python Basics
+                            </strong>
+
+                            <span>
+                                94%
+                            </span>
+
+                        </div>
+
+                        <div class="topic-progress">
+
+                            <div
+                                class="topic-progress-fill"
+                                style="width: 94%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-item">
+
+                        <div class="topic-details">
+
+                            <strong>
+                                SQL
+                            </strong>
+
+                            <span>
+                                89%
+                            </span>
+
+                        </div>
+
+                        <div class="topic-progress">
+
+                            <div
+                                class="topic-progress-fill"
+                                style="width: 89%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-item">
+
+                        <div class="topic-details">
+
+                            <strong>
+                                Data Structures
+                            </strong>
+
+                            <span>
+                                84%
+                            </span>
+
+                        </div>
+
+                        <div class="topic-progress">
+
+                            <div
+                                class="topic-progress-fill"
+                                style="width: 84%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-item">
+
+                        <div class="topic-details">
+
+                            <strong>
+                                Machine Learning
+                            </strong>
+
+                            <span>
+                                81%
+                            </span>
+
+                        </div>
+
+                        <div class="topic-progress">
+
+                            <div
+                                class="topic-progress-fill"
+                                style="width: 81%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Areas to Improve -->
+
+            <div class="analysis-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h2>
+                            📚 Areas to Improve
+                        </h2>
+
+                        <p>
+                            Topics that need more practice
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="topic-list">
+
+
+                    <div class="topic-item">
+
+                        <div class="topic-details">
+
+                            <strong>
+                                Statistics
+                            </strong>
+
+                            <span class="improve-score">
+                                61%
+                            </span>
+
+                        </div>
+
+                        <div class="topic-progress">
+
+                            <div
+                                class="topic-progress-fill improve"
+                                style="width: 61%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-item">
+
+                        <div class="topic-details">
+
+                            <strong>
+                                Probability
+                            </strong>
+
+                            <span class="improve-score">
+                                66%
+                            </span>
+
+                        </div>
+
+                        <div class="topic-progress">
+
+                            <div
+                                class="topic-progress-fill improve"
+                                style="width: 66%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-item">
+
+                        <div class="topic-details">
+
+                            <strong>
+                                Deep Learning
+                            </strong>
+
+                            <span class="improve-score">
+                                69%
+                            </span>
+
+                        </div>
+
+                        <div class="topic-progress">
+
+                            <div
+                                class="topic-progress-fill improve"
+                                style="width: 69%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-item">
+
+                        <div class="topic-details">
+
+                            <strong>
+                                Computer Networks
+                            </strong>
+
+                            <span class="improve-score">
+                                72%
+                            </span>
+
+                        </div>
+
+                        <div class="topic-progress">
+
+                            <div
+                                class="topic-progress-fill improve"
+                                style="width: 72%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RECENT QUIZ PERFORMANCE
+             ================================================= -->
+
+        <div class="analysis-card recent-performance-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <h2>
+                        Recent Quiz Performance
+                    </h2>
+
+                    <p>
+                        Your latest quiz result
+                    </p>
+
+                </div>
+
+                <a
+                    href="available_quizzes.html"
+                    class="view-all-button"
+                >
+                    Take a Quiz →
+                </a>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table class="performance-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Quiz
+                            </th>
+
+                            <th>
+                                Subject
+                            </th>
+
+                            <th>
+                                Score
+                            </th>
+
+                            <th>
+                                Accuracy
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Python Fundamentals
+                            </td>
+
+                            <td>
+                                Python
+                            </td>
+
+                            <td id="tableScore">
+                                0/40
+                            </td>
+
+                            <td id="tableAccuracy">
+                                0%
+                            </td>
+
+                            <td>
+
+                                <span
+                                    class="status-badge good"
+                                    id="tableStatus"
+                                >
+                                    Good
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PERFORMANCE MESSAGE
+             ================================================= -->
+
+        <div class="performance-message">
+
+            <div class="message-icon">
+                🌟
+            </div>
+
+            <div>
+
+                <h2 id="performanceMessageTitle">
+                    Good Job!
+                </h2>
+
+                <p id="performanceMessageText">
+                    Keep practicing and continue improving your performance.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="performance-footer">
+
+        <p>
+            © 2026 Quiz Master. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+
+        /* =================================================
+           GET DATA FROM QUIZ
+           ================================================= */
+
+        const correct =
+            parseInt(localStorage.getItem("quizCorrect")) || 0;
+
+
+        const wrong =
+            parseInt(localStorage.getItem("quizWrong")) || 0;
+
+
+        const unanswered =
+            parseInt(localStorage.getItem("quizUnanswered")) || 0;
+
+
+        const score =
+            parseFloat(localStorage.getItem("quizScore")) || 0;
+
+
+        const totalMarks =
+            parseFloat(localStorage.getItem("quizTotalMarks")) || 40;
+
+
+
+        /* =================================================
+           CALCULATE TOTAL QUESTIONS
+           ================================================= */
+
+        const totalQuestions =
+            correct + wrong + unanswered;
+
+
+
+        /* =================================================
+           CALCULATE ATTEMPTED QUESTIONS
+           ================================================= */
+
+        const attempted =
+            correct + wrong;
+
+
+
+        /* =================================================
+           CALCULATE ACCURACY
+           
+           Accuracy is based ONLY on attempted questions.
+           
+           Example:
+           8 correct
+           2 wrong
+           10 unanswered
+           
+           Accuracy = 8 / 10 × 100
+                    = 80%
+           ================================================= */
+
+        let accuracy = 0;
+
+
+        if (attempted > 0) {
+
+            accuracy =
+                (correct / attempted) * 100;
+
+        }
+
+
+        accuracy =
+            Math.round(accuracy * 10) / 10;
+
+
+
+        /* =================================================
+           CALCULATE SCORE PERCENTAGE
+           ================================================= */
+
+        let scorePercentage = 0;
+
+
+        if (totalMarks > 0) {
+
+            scorePercentage =
+                (score / totalMarks) * 100;
+
+        }
+
+
+        scorePercentage =
+            Math.round(scorePercentage * 10) / 10;
+
+
+
+        /* =================================================
+           ANSWER DISTRIBUTION PERCENTAGES
+           
+           These percentages are based on ALL QUESTIONS.
+           
+           Example:
+           8 correct
+           2 wrong
+           10 unanswered
+           
+           Correct     = 8/20 × 100 = 40%
+           Wrong       = 2/20 × 100 = 10%
+           Unanswered  = 10/20 × 100 = 50%
+           ================================================= */
+
+        let correctPercentage = 0;
+
+        let wrongPercentage = 0;
+
+        let unansweredPercentage = 0;
+
+
+        if (totalQuestions > 0) {
+
+            correctPercentage =
+                (correct / totalQuestions) * 100;
+
+
+            wrongPercentage =
+                (wrong / totalQuestions) * 100;
+
+
+            unansweredPercentage =
+                (unanswered / totalQuestions) * 100;
+
+        }
+
+
+        correctPercentage =
+            Math.round(correctPercentage * 10) / 10;
+
+
+        wrongPercentage =
+            Math.round(wrongPercentage * 10) / 10;
+
+
+        unansweredPercentage =
+            Math.round(unansweredPercentage * 10) / 10;
+
+
+
+        /* =================================================
+           UPDATE SUMMARY CARDS
+           ================================================= */
+
+        document.getElementById("overallScore").textContent =
+            scorePercentage + "%";
+
+
+        document.getElementById("accuracy").textContent =
+            accuracy + "%";
+
+
+        document.getElementById("averageScore").textContent =
+            score.toFixed(1) + "/" + totalMarks;
+
+
+
+        /* =================================================
+           UPDATE ANSWER LEGEND
+           ================================================= */
+
+        document.getElementById("correctPercentage").textContent =
+            correctPercentage + "%";
+
+
+        document.getElementById("wrongPercentage").textContent =
+            wrongPercentage + "%";
+
+
+        document.getElementById("unansweredPercentage").textContent =
+            unansweredPercentage + "%";
+
+
+
+        /* =================================================
+           UPDATE RECENT QUIZ TABLE
+           ================================================= */
+
+        document.getElementById("tableScore").textContent =
+            score.toFixed(1) + "/" + totalMarks;
+
+
+        document.getElementById("tableAccuracy").textContent =
+            accuracy + "%";
+
+
+        /* =================================================
+           UPDATE STATUS
+           ================================================= */
+
+        const tableStatus =
+            document.getElementById("tableStatus");
+
+
+        if (accuracy >= 90) {
+
+            tableStatus.textContent =
+                "Excellent";
+
+            tableStatus.className =
+                "status-badge excellent";
+
+        }
+
+        else if (accuracy >= 75) {
+
+            tableStatus.textContent =
+                "Good";
+
+            tableStatus.className =
+                "status-badge good";
+
+        }
+
+        else {
+
+            tableStatus.textContent =
+                "Practice";
+
+            tableStatus.className =
+                "status-badge practice";
+
+        }
+
+
+
+        /* =================================================
+           PERFORMANCE MESSAGE
+           ================================================= */
+
+        const messageTitle =
+            document.getElementById("performanceMessageTitle");
+
+
+        const messageText =
+            document.getElementById("performanceMessageText");
+
+
+        if (accuracy >= 90) {
+
+            messageTitle.textContent =
+                "Excellent Performance!";
+
+
+            messageText.textContent =
+                "Your accuracy is excellent. Keep maintaining this level of performance.";
+
+        }
+
+        else if (accuracy >= 75) {
+
+            messageTitle.textContent =
+                "Great Job!";
+
+
+            messageText.textContent =
+                "Your accuracy is strong. Keep practicing to improve your score further.";
+
+        }
+
+        else if (attempted > 0) {
+
+            messageTitle.textContent =
+                "Keep Practicing!";
+
+
+            messageText.textContent =
+                "Review the questions you answered incorrectly and continue practicing.";
+
+        }
+
+        else {
+
+            messageTitle.textContent =
+                "No Questions Attempted";
+
+
+            messageText.textContent =
+                "You did not attempt any questions. Try the quiz again and answer some questions.";
+
+        }
+
+
+
+        /* =================================================
+           QUIZ PERFORMANCE BAR CHART
+           ================================================= */
+
+        const performanceCanvas =
+            document.getElementById("performanceChart");
+
+
+        new Chart(
+            performanceCanvas,
+            {
+
+                type: "bar",
+
+                data: {
+
+                    labels: [
+                        "Latest Quiz"
+                    ],
+
+                    datasets: [
+
+                        {
+
+                            label: "Score (%)",
+
+                            data: [
+                                scorePercentage
+                            ],
+
+                            borderWidth: 2
+
+                        }
+
+                    ]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    scales: {
+
+                        y: {
+
+                            beginAtZero: true,
+
+                            max: 100,
+
+                            ticks: {
+
+                                callback: function(value) {
+
+                                    return value + "%";
+
+                                }
+
+                            }
+
+                        }
+
+                    },
+
+                    plugins: {
+
+                        legend: {
+
+                            display: false
+
+                        }
+
+                    }
+
+                }
+
+            }
+        );
+
+
+
+        /* =================================================
+           ANSWER DISTRIBUTION DOUGHNUT CHART
+           
+           IMPORTANT:
+           
+           The chart uses COUNTS, not percentages.
+           
+           Example:
+           
+           Correct = 8
+           Wrong = 2
+           Unanswered = 10
+           
+           Chart = 8 / 2 / 10
+           ================================================= */
+
+        const answerCanvas =
+            document.getElementById("answerChart");
+
+
+        new Chart(
+            answerCanvas,
+            {
+
+                type: "doughnut",
+
+                data: {
+
+                    labels: [
+
+                        "Correct",
+
+                        "Wrong",
+
+                        "Unanswered"
+
+                    ],
+
+                    datasets: [
+
+                        {
+
+                            data: [
+
+                                correct,
+
+                                wrong,
+
+                                unanswered
+
+                            ],
+
+                            borderWidth: 2
+
+                        }
+
+                    ]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    cutout: "65%",
+
+                    plugins: {
+
+                        legend: {
+
+                            display: false
+
+                        }
+
+                    }
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

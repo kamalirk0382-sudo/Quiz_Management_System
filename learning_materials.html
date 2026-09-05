@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Materials - Quiz Master</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="student_dashboard.html">Quiz Master</a>
+      <div class="ms-auto d-flex align-items-center gap-3">
+        <a href="student_dashboard.html" class="btn btn-outline-primary">Dashboard</a>
+        <a href="my_courses.html" class="btn btn-outline-primary">My Courses</a>
+        <a href="available_quizzes.html" class="btn btn-outline-primary">Quizzes</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="course-section">
+    <div class="container">
+      <div class="course-header">
+        <h1>Learning Materials</h1>
+        <p>Access your course notes, videos, presentations, and other learning resources.</p>
+      </div>
+      <div class="learning-filter-box">
+        <div class="row g-3">
+          <div class="col-md-6"><label for="searchMaterial">Search Materials</label><input id="searchMaterial" class="form-control" type="text" placeholder="Search by material name..." oninput="filterMaterials()"></div>
+          <div class="col-md-3"><label for="courseFilter">Course</label><select id="courseFilter" class="form-select" onchange="filterMaterials()"><option value="all">All Courses</option><option value="python">Python Programming</option><option value="sql">SQL &amp; Database</option><option value="datascience">Data Science</option><option value="machinelearning">Machine Learning</option></select></div>
+          <div class="col-md-3"><label for="typeFilter">Material Type</label><select id="typeFilter" class="form-select" onchange="filterMaterials()"><option value="all">All Types</option><option value="pdf">PDF / Notes</option><option value="video">Video</option><option value="presentation">Presentation</option></select></div>
+        </div>
+      </div>
+      <div class="row g-4 mt-3" id="materialsContainer">
+        <div class="col-md-6 col-lg-4 material-item" data-course="python" data-type="pdf"><div class="material-card"><div class="material-icon pdf-icon">📄</div><div class="material-content"><span class="material-type">PDF / NOTES</span><h3>Python Programming Basics</h3><p>Learn Python syntax, variables, data types, operators, and basic programs.</p><div class="material-info"><span>📚 Python Programming</span><span>📄 25 Pages</span></div><button class="material-button" onclick="viewMaterial('Python Programming Basics')">View Material →</button></div></div></div>
+        <div class="col-md-6 col-lg-4 material-item" data-course="python" data-type="video"><div class="material-card"><div class="material-icon video-icon">🎥</div><div class="material-content"><span class="material-type">VIDEO</span><h3>Python Functions</h3><p>Understand functions, parameters, return values, and function calling.</p><div class="material-info"><span>📚 Python Programming</span><span>⏱️ 35 Minutes</span></div><button class="material-button" onclick="viewMaterial('Python Functions Video')">Watch Video →</button></div></div></div>
+        <div class="col-md-6 col-lg-4 material-item" data-course="sql" data-type="pdf"><div class="material-card"><div class="material-icon pdf-icon">📄</div><div class="material-content"><span class="material-type">PDF / NOTES</span><h3>SQL Fundamentals</h3><p>Learn SELECT, INSERT, UPDATE, DELETE, WHERE, GROUP BY, and JOIN.</p><div class="material-info"><span>🗄️ SQL &amp; Database</span><span>📄 32 Pages</span></div><button class="material-button" onclick="viewMaterial('SQL Fundamentals')">View Material →</button></div></div></div>
+        <div class="col-md-6 col-lg-4 material-item" data-course="sql" data-type="presentation"><div class="material-card"><div class="material-icon presentation-icon">📊</div><div class="material-content"><span class="material-type">PRESENTATION</span><h3>Database Management</h3><p>Introduction to databases, tables, keys, relationships, and normalization.</p><div class="material-info"><span>🗄️ SQL &amp; Database</span><span>📊 28 Slides</span></div><button class="material-button" onclick="viewMaterial('Database Management Presentation')">View Presentation →</button></div></div></div>
+        <div class="col-md-6 col-lg-4 material-item" data-course="datascience" data-type="pdf"><div class="material-card"><div class="material-icon pdf-icon">📄</div><div class="material-content"><span class="material-type">PDF / NOTES</span><h3>Data Science Fundamentals</h3><p>Introduction to data science, data analysis, statistics, and visualization.</p><div class="material-info"><span>📈 Data Science</span><span>📄 40 Pages</span></div><button class="material-button" onclick="viewMaterial('Data Science Fundamentals')">View Material →</button></div></div></div>
+        <div class="col-md-6 col-lg-4 material-item" data-course="datascience" data-type="video"><div class="material-card"><div class="material-icon video-icon">🎥</div><div class="material-content"><span class="material-type">VIDEO</span><h3>Data Visualization</h3><p>Learn how charts and graphs can be used to understand data effectively.</p><div class="material-info"><span>📈 Data Science</span><span>⏱️ 42 Minutes</span></div><button class="material-button" onclick="viewMaterial('Data Visualization Video')">Watch Video →</button></div></div></div>
+        <div class="col-md-6 col-lg-4 material-item" data-course="machinelearning" data-type="pdf"><div class="material-card"><div class="material-icon pdf-icon">📄</div><div class="material-content"><span class="material-type">PDF / NOTES</span><h3>Machine Learning Basics</h3><p>Learn supervised learning, unsupervised learning, and model training.</p><div class="material-info"><span>🤖 Machine Learning</span><span>📄 45 Pages</span></div><button class="material-button" onclick="viewMaterial('Machine Learning Basics')">View Material →</button></div></div></div>
+        <div class="col-md-6 col-lg-4 material-item" data-course="machinelearning" data-type="video"><div class="material-card"><div class="material-icon video-icon">🎥</div><div class="material-content"><span class="material-type">VIDEO</span><h3>Linear Regression</h3><p>Understand the basic concept of linear regression with examples.</p><div class="material-info"><span>🤖 Machine Learning</span><span>⏱️ 38 Minutes</span></div><button class="material-button" onclick="viewMaterial('Linear Regression Video')">Watch Video →</button></div></div></div>
+        <div class="col-md-6 col-lg-4 material-item" data-course="machinelearning" data-type="presentation"><div class="material-card"><div class="material-icon presentation-icon">📊</div><div class="material-content"><span class="material-type">PRESENTATION</span><h3>Classification Algorithms</h3><p>Overview of classification algorithms including Decision Tree and KNN.</p><div class="material-info"><span>🤖 Machine Learning</span><span>📊 35 Slides</span></div><button class="material-button" onclick="viewMaterial('Classification Algorithms')">View Presentation →</button></div></div></div>
+      </div>
+      <div id="noMaterials" class="no-materials"><div class="no-material-icon">🔍</div><h3>No Materials Found</h3><p>Try changing your search or filter.</p></div>
+    </div>
+  </section>
+  <footer class="performance-footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+  <script>
+    function filterMaterials() {
+      const search = document.getElementById('searchMaterial').value.toLowerCase();
+      const course = document.getElementById('courseFilter').value;
+      const type = document.getElementById('typeFilter').value;
+      let count = 0;
+      document.querySelectorAll('.material-item').forEach(item => {
+        const matches = (course === 'all' || item.dataset.course === course) && (type === 'all' || item.dataset.type === type) && item.textContent.toLowerCase().includes(search);
+        item.style.display = matches ? '' : 'none';
+        if (matches) count++;
+      });
+      document.getElementById('noMaterials').style.display = count ? 'none' : 'block';
+    }
+    function viewMaterial(name) { alert('Opening: ' + name + '\n\nActual files will be connected after the backend and database are completed.'); }
+    filterMaterials();
+  </script>
+</body>
+</html>

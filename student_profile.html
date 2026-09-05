@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Profile - Quiz Master</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="top-header">
+		<div class="logo">Quiz Master</div>
+		<nav>
+			<a href="student_dashboard.html">Dashboard</a>
+			<a href="my_courses.html">My Courses</a>
+			<a href="available_quizzes.html">Quizzes</a>
+		</nav>
+	</header>
+
+	<main class="profile-container">
+		<section class="page-heading">
+			<h1>Student Profile</h1>
+			<p>View and manage your personal and academic information.</p>
+		</section>
+
+		<section class="profile-card">
+			<div class="profile-header">
+				<div class="profile-avatar">KR</div>
+				<div>
+					<h1>Kamali Radhakrishnan</h1>
+					<p>Student</p>
+				</div>
+			</div>
+
+			<h2 style="color: #244b7a; margin-bottom: 20px;">Personal Information</h2>
+			<div class="profile-info">
+				<div class="profile-info-item"><strong>Full Name</strong><span>Kamali Radhakrishnan</span></div>
+				<div class="profile-info-item"><strong>Student ID</strong><span>QM2026ST001</span></div>
+				<div class="profile-info-item"><strong>Email</strong><span>student@example.com</span></div>
+				<div class="profile-info-item"><strong>Phone Number</strong><span>+91 XXXXX XXXXX</span></div>
+				<div class="profile-info-item"><strong>Gender</strong><span>Not Specified</span></div>
+				<div class="profile-info-item"><strong>Date of Birth</strong><span>Not Specified</span></div>
+			</div>
+
+			<h2 style="color: #244b7a; margin-top: 40px; margin-bottom: 20px;">Academic Information</h2>
+			<div class="profile-info">
+				<div class="profile-info-item"><strong>Department</strong><span>Artificial Intelligence &amp; Data Science</span></div>
+				<div class="profile-info-item"><strong>Year</strong><span>3rd Year</span></div>
+				<div class="profile-info-item"><strong>Institution</strong><span>CSI College Of Engineering</span></div>
+				<div class="profile-info-item"><strong>University</strong><span>Anna University</span></div>
+			</div>
+
+			<h2 style="color: #244b7a; margin-top: 40px; margin-bottom: 20px;">Learning Summary</h2>
+			<div class="profile-info">
+				<div class="profile-info-item"><strong>Enrolled Courses</strong><span>3 Courses</span></div>
+				<div class="profile-info-item"><strong>Quizzes Completed</strong><span>12 Quizzes</span></div>
+				<div class="profile-info-item"><strong>Assignments Submitted</strong><span>8 Assignments</span></div>
+				<div class="profile-info-item"><strong>Average Score</strong><span>82%</span></div>
+			</div>
+
+			<div style="margin-top: 35px; display: flex; gap: 15px; flex-wrap: wrap;">
+				<button class="button button-primary" onclick="editProfile()">Edit Profile</button>
+				<button class="button button-secondary" onclick="changePassword()">Change Password</button>
+				<button class="button button-danger" onclick="logoutStudent()">Logout</button>
+			</div>
+		</section>
+	</main>
+
+	<script>
+		function editProfile() {
+			alert("Edit Profile functionality will be connected to the backend later.");
+		}
+
+		function changePassword() {
+			alert("Change Password functionality will be connected to the backend later.");
+		}
+
+		function logoutStudent() {
+			if (confirm("Are you sure you want to logout?")) {
+				window.location.href = "login.html";
+			}
+		}
+	</script>
+</body>
+</html>

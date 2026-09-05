@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Enrollment - Admin | Quiz Master</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="main-header">
+
+        <div class="logo">
+            <h1>Quiz Master</h1>
+        </div>
+
+
+        <nav class="main-nav">
+
+            <a href="admin_dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="course_management.html">
+                Courses
+            </a>
+
+            <a href="student_management.html">
+                Students
+            </a>
+
+            <a href="faculty_management.html">
+                Faculty
+            </a>
+
+            <a href="student_enrollment.html"
+               class="active">
+                Enrollment
+            </a>
+
+            <a href="faculty_assignment.html">
+                Faculty Assignment
+            </a>
+
+            <a href="quiz_management.html">
+                Quizzes
+            </a>
+
+            <a href="admin_reports.html">
+                Reports
+            </a>
+
+            <a href="admin_profile.html">
+                Profile
+            </a>
+
+            <a href="login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="management-container">
+
+
+        <!-- PAGE HEADING -->
+
+        <div class="dashboard-heading">
+
+            <div>
+
+                <h2>
+                    Student Enrollment
+                </h2>
+
+                <p>
+                    Enroll students into available courses.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ENROLL STUDENT -->
+
+        <div class="management-card">
+
+            <h3>
+                Enroll Student
+            </h3>
+
+
+            <form id="enrollmentForm">
+
+
+                <!-- STUDENT + COURSE -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="student">
+
+                            Student
+
+                        </label>
+
+
+                        <select
+                            id="student"
+                            required
+                        >
+
+                            <option value="">
+                                Select Student
+                            </option>
+
+                            <option value="STU001">
+                                STU001 - Priya Sharma
+                            </option>
+
+                            <option value="STU002">
+                                STU002 - Rahul Kumar
+                            </option>
+
+                            <option value="STU003">
+                                STU003 - Ananya Raj
+                            </option>
+
+                            <option value="STU004">
+                                STU004 - Arjun Kumar
+                            </option>
+
+                            <option value="STU005">
+                                STU005 - Sneha Devi
+                            </option>
+
+                            <option value="STU006">
+                                STU006 - Vishnu Prasad
+                            </option>
+
+                            <option value="STU007">
+                                STU007 - Divya Mohan
+                            </option>
+
+                            <option value="STU008">
+                                STU008 - Karthik Raj
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="course">
+
+                            Course
+
+                        </label>
+
+
+                        <select
+                            id="course"
+                            required
+                        >
+
+                            <option value="">
+                                Select Course
+                            </option>
+
+                            <option value="Python Programming">
+                                Python Programming
+                            </option>
+
+                            <option value="Data Structures">
+                                Data Structures
+                            </option>
+
+                            <option value="Database Management Systems">
+                                Database Management Systems
+                            </option>
+
+                            <option value="Machine Learning">
+                                Machine Learning
+                            </option>
+
+                            <option value="Artificial Intelligence">
+                                Artificial Intelligence
+                            </option>
+
+                            <option value="Web Development">
+                                Web Development
+                            </option>
+
+                            <option value="Statistics">
+                                Statistics
+                            </option>
+
+                            <option value="Cloud Computing">
+                                Cloud Computing
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DATE + ACADEMIC YEAR -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="enrollmentDate">
+
+                            Enrollment Date
+
+                        </label>
+
+
+                        <input
+                            type="date"
+                            id="enrollmentDate"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="academicYear">
+
+                            Academic Year
+
+                        </label>
+
+
+                        <select
+                            id="academicYear"
+                            required
+                        >
+
+                            <option value="">
+                                Select Academic Year
+                            </option>
+
+                            <option value="2025-2026">
+                                2025 - 2026
+                            </option>
+
+                            <option value="2026-2027">
+                                2026 - 2027
+                            </option>
+
+                            <option value="2027-2028">
+                                2027 - 2028
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SEMESTER + STATUS -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="semester">
+
+                            Semester
+
+                        </label>
+
+
+                        <select
+                            id="semester"
+                            required
+                        >
+
+                            <option value="">
+                                Select Semester
+                            </option>
+
+                            <option value="Semester 1">
+                                Semester 1
+                            </option>
+
+                            <option value="Semester 2">
+                                Semester 2
+                            </option>
+
+                            <option value="Semester 3">
+                                Semester 3
+                            </option>
+
+                            <option value="Semester 4">
+                                Semester 4
+                            </option>
+
+                            <option value="Semester 5">
+                                Semester 5
+                            </option>
+
+                            <option value="Semester 6">
+                                Semester 6
+                            </option>
+
+                            <option value="Semester 7">
+                                Semester 7
+                            </option>
+
+                            <option value="Semester 8">
+                                Semester 8
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="enrollmentStatus">
+
+                            Enrollment Status
+
+                        </label>
+
+
+                        <select
+                            id="enrollmentStatus"
+                            required
+                        >
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+                            <option value="Dropped">
+                                Dropped
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BUTTONS -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="reset"
+                        class="secondary-button"
+                    >
+                        Clear
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Enroll Student
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- ENROLLMENT LIST -->
+
+        <div class="management-card">
+
+
+            <div class="table-header">
+
+                <div>
+
+                    <h3>
+                        Enrollment Records
+                    </h3>
+
+                    <p>
+
+                        Total Enrollments:
+                        <strong id="enrollmentCount">
+                            8
+                        </strong>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SEARCH AND FILTER -->
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label for="searchEnrollment">
+
+                        Search Enrollment
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="searchEnrollment"
+                        placeholder="Search student or course..."
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="filterCourse">
+
+                        Course
+
+                    </label>
+
+
+                    <select id="filterCourse">
+
+                        <option value="">
+                            All Courses
+                        </option>
+
+                        <option value="Python Programming">
+                            Python Programming
+                        </option>
+
+                        <option value="Data Structures">
+                            Data Structures
+                        </option>
+
+                        <option value="Database Management Systems">
+                            Database Management Systems
+                        </option>
+
+                        <option value="Machine Learning">
+                            Machine Learning
+                        </option>
+
+                        <option value="Artificial Intelligence">
+                            Artificial Intelligence
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="filterEnrollmentStatus">
+
+                        Status
+
+                    </label>
+
+
+                    <select id="filterEnrollmentStatus">
+
+                        <option value="">
+                            All Status
+                        </option>
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Completed">
+                            Completed
+                        </option>
+
+                        <option value="Dropped">
+                            Dropped
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ENROLLMENT TABLE -->
+
+            <div class="table-container">
+
+                <table class="management-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Enrollment ID</th>
+
+                            <th>Student</th>
+
+                            <th>Course</th>
+
+                            <th>Enrollment Date</th>
+
+                            <th>Academic Year</th>
+
+                            <th>Semester</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody id="enrollmentTableBody">
+
+
+                        <!-- RECORD 1 -->
+
+                        <tr>
+
+                            <td>
+                                ENR001
+                            </td>
+
+                            <td>
+                                STU001 - Priya Sharma
+                            </td>
+
+                            <td>
+                                Python Programming
+                            </td>
+
+                            <td>
+                                2026-06-10
+                            </td>
+
+                            <td>
+                                2026-2027
+                            </td>
+
+                            <td>
+                                Semester 5
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewEnrollment('ENR001')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="removeEnrollment('ENR001')"
+                                >
+                                    Remove
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- RECORD 2 -->
+
+                        <tr>
+
+                            <td>
+                                ENR002
+                            </td>
+
+                            <td>
+                                STU002 - Rahul Kumar
+                            </td>
+
+                            <td>
+                                Data Structures
+                            </td>
+
+                            <td>
+                                2026-06-11
+                            </td>
+
+                            <td>
+                                2026-2027
+                            </td>
+
+                            <td>
+                                Semester 5
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewEnrollment('ENR002')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="removeEnrollment('ENR002')"
+                                >
+                                    Remove
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- RECORD 3 -->
+
+                        <tr>
+
+                            <td>
+                                ENR003
+                            </td>
+
+                            <td>
+                                STU003 - Ananya Raj
+                            </td>
+
+                            <td>
+                                Machine Learning
+                            </td>
+
+                            <td>
+                                2026-06-12
+                            </td>
+
+                            <td>
+                                2026-2027
+                            </td>
+
+                            <td>
+                                Semester 5
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewEnrollment('ENR003')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="removeEnrollment('ENR003')"
+                                >
+                                    Remove
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- RECORD 4 -->
+
+                        <tr>
+
+                            <td>
+                                ENR004
+                            </td>
+
+                            <td>
+                                STU004 - Arjun Kumar
+                            </td>
+
+                            <td>
+                                Database Management Systems
+                            </td>
+
+                            <td>
+                                2026-06-13
+                            </td>
+
+                            <td>
+                                2026-2027
+                            </td>
+
+                            <td>
+                                Semester 7
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewEnrollment('ENR004')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="removeEnrollment('ENR004')"
+                                >
+                                    Remove
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- RECORD 5 -->
+
+                        <tr>
+
+                            <td>
+                                ENR005
+                            </td>
+
+                            <td>
+                                STU005 - Sneha Devi
+                            </td>
+
+                            <td>
+                                Artificial Intelligence
+                            </td>
+
+                            <td>
+                                2026-06-14
+                            </td>
+
+                            <td>
+                                2026-2027
+                            </td>
+
+                            <td>
+                                Semester 3
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewEnrollment('ENR005')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="removeEnrollment('ENR005')"
+                                >
+                                    Remove
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- RECORD 6 -->
+
+                        <tr>
+
+                            <td>
+                                ENR006
+                            </td>
+
+                            <td>
+                                STU006 - Vishnu Prasad
+                            </td>
+
+                            <td>
+                                Web Development
+                            </td>
+
+                            <td>
+                                2026-06-15
+                            </td>
+
+                            <td>
+                                2026-2027
+                            </td>
+
+                            <td>
+                                Semester 5
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewEnrollment('ENR006')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="removeEnrollment('ENR006')"
+                                >
+                                    Remove
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- RECORD 7 -->
+
+                        <tr>
+
+                            <td>
+                                ENR007
+                            </td>
+
+                            <td>
+                                STU007 - Divya Mohan
+                            </td>
+
+                            <td>
+                                Statistics
+                            </td>
+
+                            <td>
+                                2026-06-16
+                            </td>
+
+                            <td>
+                                2026-2027
+                            </td>
+
+                            <td>
+                                Semester 7
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewEnrollment('ENR007')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="removeEnrollment('ENR007')"
+                                >
+                                    Remove
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- RECORD 8 -->
+
+                        <tr>
+
+                            <td>
+                                ENR008
+                            </td>
+
+                            <td>
+                                STU008 - Karthik Raj
+                            </td>
+
+                            <td>
+                                Cloud Computing
+                            </td>
+
+                            <td>
+                                2026-06-17
+                            </td>
+
+                            <td>
+                                2026-2027
+                            </td>
+
+                            <td>
+                                Semester 7
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-inactive">
+                                    Dropped
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewEnrollment('ENR008')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="removeEnrollment('ENR008')"
+                                >
+                                    Remove
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="main-footer">
+
+        <p>
+            © 2026 Quiz Master. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+
+        /* =================================
+           ENROLL STUDENT
+        ================================= */
+
+        const enrollmentForm =
+            document.getElementById(
+                "enrollmentForm"
+            );
+
+
+        enrollmentForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const student =
+                    document.getElementById(
+                        "student"
+                    ).value;
+
+
+                const course =
+                    document.getElementById(
+                        "course"
+                    ).value;
+
+
+                const enrollmentDate =
+                    document.getElementById(
+                        "enrollmentDate"
+                    ).value;
+
+
+                const academicYear =
+                    document.getElementById(
+                        "academicYear"
+                    ).value;
+
+
+                const semester =
+                    document.getElementById(
+                        "semester"
+                    ).value;
+
+
+                alert(
+                    "Student Enrolled Successfully!\n\n" +
+
+                    "Student: " +
+                    student +
+
+                    "\nCourse: " +
+                    course +
+
+                    "\nEnrollment Date: " +
+                    enrollmentDate +
+
+                    "\nAcademic Year: " +
+                    academicYear +
+
+                    "\nSemester: " +
+                    semester
+                );
+
+
+                enrollmentForm.reset();
+
+            }
+        );
+
+
+
+        /* =================================
+           SEARCH AND FILTER
+        ================================= */
+
+        const searchEnrollment =
+            document.getElementById(
+                "searchEnrollment"
+            );
+
+
+        const filterCourse =
+            document.getElementById(
+                "filterCourse"
+            );
+
+
+        const filterEnrollmentStatus =
+            document.getElementById(
+                "filterEnrollmentStatus"
+            );
+
+
+        const enrollmentTableBody =
+            document.getElementById(
+                "enrollmentTableBody"
+            );
+
+
+        const enrollmentCount =
+            document.getElementById(
+                "enrollmentCount"
+            );
+
+
+        function filterEnrollments() {
+
+            const searchText =
+                searchEnrollment.value
+                .toLowerCase();
+
+
+            const selectedCourse =
+                filterCourse.value;
+
+
+            const selectedStatus =
+                filterEnrollmentStatus.value;
+
+
+            const rows =
+                enrollmentTableBody
+                .querySelectorAll("tr");
+
+
+            let visibleCount = 0;
+
+
+            rows.forEach(
+                function(row) {
+
+
+                    const student =
+                        row.cells[1]
+                        .textContent
+                        .trim()
+                        .toLowerCase();
+
+
+                    const course =
+                        row.cells[2]
+                        .textContent
+                        .trim();
+
+
+                    const status =
+                        row.cells[6]
+                        .textContent
+                        .trim();
+
+
+                    const matchesSearch =
+                        student.includes(searchText) ||
+                        course.toLowerCase()
+                        .includes(searchText);
+
+
+                    const matchesCourse =
+                        selectedCourse === "" ||
+                        course === selectedCourse;
+
+
+                    const matchesStatus =
+                        selectedStatus === "" ||
+                        status === selectedStatus;
+
+
+                    if (
+                        matchesSearch &&
+                        matchesCourse &&
+                        matchesStatus
+                    ) {
+
+                        row.style.display = "";
+
+                        visibleCount++;
+
+                    }
+
+                    else {
+
+                        row.style.display = "none";
+
+                    }
+
+                }
+            );
+
+
+            enrollmentCount.textContent =
+                visibleCount;
+
+        }
+
+
+
+        searchEnrollment.addEventListener(
+            "input",
+            filterEnrollments
+        );
+
+
+        filterCourse.addEventListener(
+            "change",
+            filterEnrollments
+        );
+
+
+        filterEnrollmentStatus.addEventListener(
+            "change",
+            filterEnrollments
+        );
+
+
+
+        /* =================================
+           VIEW ENROLLMENT
+        ================================= */
+
+        function viewEnrollment(enrollmentId) {
+
+            alert(
+                "Enrollment Details\n\n" +
+
+                "Enrollment ID: " +
+                enrollmentId +
+
+                "\n\n" +
+
+                "Complete enrollment information " +
+                "will be connected to the database later."
+            );
+
+        }
+
+
+
+        /* =================================
+           REMOVE ENROLLMENT
+        ================================= */
+
+        function removeEnrollment(enrollmentId) {
+
+            const confirmation =
+                confirm(
+                    "Are you sure you want to remove " +
+                    enrollmentId +
+                    "?"
+                );
+
+
+            if (confirmation) {
+
+                alert(
+                    "Enrollment " +
+                    enrollmentId +
+                    " removed successfully."
+                );
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

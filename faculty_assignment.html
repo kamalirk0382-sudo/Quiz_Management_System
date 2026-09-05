@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Faculty Assignment - Quiz Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="main-header">
+
+    <div class="header-container">
+
+        <div class="logo-section">
+            <h1>Quiz Management System</h1>
+            <p>Admin Panel</p>
+        </div>
+
+        <nav class="main-nav">
+
+            <a href="admin_dashboard.html">Dashboard</a>
+
+            <a href="course_management.html">Courses</a>
+
+            <a href="student_management.html">Students</a>
+
+            <a href="faculty_management.html">Faculty</a>
+
+            <a href="student_enrollment.html">Enrollment</a>
+
+            <a href="faculty_assignment.html" class="active">
+                Faculty Assignment
+            </a>
+
+            <a href="quiz_management.html">Quizzes</a>
+
+            <a href="admin_reports.html">Reports</a>
+
+            <a href="admin_profile.html">Profile</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main class="management-container">
+
+    <!-- PAGE HEADING -->
+
+    <div class="dashboard-heading">
+
+        <div>
+            <h2>Faculty Assignment</h2>
+
+            <p>
+                Assign faculty members to courses and manage teaching assignments.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- ================= ASSIGN FACULTY ================= -->
+
+    <div class="management-card">
+
+        <div class="card-header">
+
+            <div>
+                <h3>Assign Faculty to Course</h3>
+
+                <p>
+                    Create a new faculty-course assignment.
+                </p>
+            </div>
+
+        </div>
+
+
+        <form id="facultyAssignmentForm">
+
+            <div class="form-row">
+
+                <!-- Faculty -->
+
+                <div class="form-group">
+
+                    <label for="faculty">
+                        Select Faculty
+                    </label>
+
+                    <select id="faculty" required>
+
+                        <option value="">
+                            Select Faculty
+                        </option>
+
+                        <option value="FAC001">
+                            Dr. Priya Sharma - FAC001
+                        </option>
+
+                        <option value="FAC002">
+                            Prof. Arun Kumar - FAC002
+                        </option>
+
+                        <option value="FAC003">
+                            Dr. Meena Ravi - FAC003
+                        </option>
+
+                        <option value="FAC004">
+                            Prof. Karthik Raj - FAC004
+                        </option>
+
+                        <option value="FAC005">
+                            Dr. Divya Mohan - FAC005
+                        </option>
+
+                        <option value="FAC006">
+                            Prof. Suresh Babu - FAC006
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Course -->
+
+                <div class="form-group">
+
+                    <label for="course">
+                        Select Course
+                    </label>
+
+                    <select id="course" required>
+
+                        <option value="">
+                            Select Course
+                        </option>
+
+                        <option value="CS101">
+                            CS101 - Python Programming
+                        </option>
+
+                        <option value="DS201">
+                            DS201 - Data Science
+                        </option>
+
+                        <option value="ML301">
+                            ML301 - Machine Learning
+                        </option>
+
+                        <option value="DB204">
+                            DB204 - Database Management
+                        </option>
+
+                        <option value="AI305">
+                            AI305 - Artificial Intelligence
+                        </option>
+
+                        <option value="WD210">
+                            WD210 - Web Development
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <!-- Assignment Date -->
+
+                <div class="form-group">
+
+                    <label for="assignmentDate">
+                        Assignment Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="assignmentDate"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Academic Year -->
+
+                <div class="form-group">
+
+                    <label for="academicYear">
+                        Academic Year
+                    </label>
+
+                    <select id="academicYear" required>
+
+                        <option value="">
+                            Select Academic Year
+                        </option>
+
+                        <option value="2025-2026">
+                            2025-2026
+                        </option>
+
+                        <option value="2026-2027">
+                            2026-2027
+                        </option>
+
+                        <option value="2027-2028">
+                            2027-2028
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <!-- Semester -->
+
+                <div class="form-group">
+
+                    <label for="semester">
+                        Semester
+                    </label>
+
+                    <select id="semester" required>
+
+                        <option value="">
+                            Select Semester
+                        </option>
+
+                        <option value="Semester 1">
+                            Semester 1
+                        </option>
+
+                        <option value="Semester 2">
+                            Semester 2
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Status -->
+
+                <div class="form-group">
+
+                    <label for="status">
+                        Status
+                    </label>
+
+                    <select id="status" required>
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="form-actions">
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Assign Faculty
+                </button>
+
+                <button
+                    type="reset"
+                    class="secondary-button"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- ================= SEARCH & FILTER ================= -->
+
+    <div class="management-card">
+
+        <div class="card-header">
+
+            <div>
+                <h3>Faculty Assignment Records</h3>
+
+                <p>
+                    View and manage existing faculty-course assignments.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="filter-section">
+
+            <!-- Search -->
+
+            <div class="form-group">
+
+                <label for="searchAssignment">
+                    Search
+                </label>
+
+                <input
+                    type="text"
+                    id="searchAssignment"
+                    placeholder="Search faculty, course or ID..."
+                >
+
+            </div>
+
+
+            <!-- Course Filter -->
+
+            <div class="form-group">
+
+                <label for="courseFilter">
+                    Course
+                </label>
+
+                <select id="courseFilter">
+
+                    <option value="all">
+                        All Courses
+                    </option>
+
+                    <option value="CS101">
+                        Python Programming
+                    </option>
+
+                    <option value="DS201">
+                        Data Science
+                    </option>
+
+                    <option value="ML301">
+                        Machine Learning
+                    </option>
+
+                    <option value="DB204">
+                        Database Management
+                    </option>
+
+                    <option value="AI305">
+                        Artificial Intelligence
+                    </option>
+
+                    <option value="WD210">
+                        Web Development
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Status Filter -->
+
+            <div class="form-group">
+
+                <label for="statusFilter">
+                    Status
+                </label>
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="Active">
+                        Active
+                    </option>
+
+                    <option value="Inactive">
+                        Inactive
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ASSIGNMENT TABLE ================= -->
+
+    <div class="management-card">
+
+        <div class="table-container">
+
+            <table class="management-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Assignment ID</th>
+
+                        <th>Faculty ID</th>
+
+                        <th>Faculty Name</th>
+
+                        <th>Course</th>
+
+                        <th>Assignment Date</th>
+
+                        <th>Academic Year</th>
+
+                        <th>Semester</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="assignmentTableBody">
+
+                    <tr>
+
+                        <td>FA001</td>
+
+                        <td>FAC001</td>
+
+                        <td>Dr. Priya Sharma</td>
+
+                        <td>CS101 - Python Programming</td>
+
+                        <td>15-06-2026</td>
+
+                        <td>2026-2027</td>
+
+                        <td>Semester 1</td>
+
+                        <td>
+                            <span class="status-badge active">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-button view"
+                                onclick="viewAssignment('FA001')"
+                            >
+                                View
+                            </button>
+
+                            <button
+                                class="table-button delete"
+                                onclick="removeAssignment('FA001')"
+                            >
+                                Remove
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>FA002</td>
+
+                        <td>FAC002</td>
+
+                        <td>Prof. Arun Kumar</td>
+
+                        <td>DS201 - Data Science</td>
+
+                        <td>18-06-2026</td>
+
+                        <td>2026-2027</td>
+
+                        <td>Semester 1</td>
+
+                        <td>
+                            <span class="status-badge active">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-button view"
+                                onclick="viewAssignment('FA002')"
+                            >
+                                View
+                            </button>
+
+                            <button
+                                class="table-button delete"
+                                onclick="removeAssignment('FA002')"
+                            >
+                                Remove
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>FA003</td>
+
+                        <td>FAC003</td>
+
+                        <td>Dr. Meena Ravi</td>
+
+                        <td>ML301 - Machine Learning</td>
+
+                        <td>20-06-2026</td>
+
+                        <td>2026-2027</td>
+
+                        <td>Semester 1</td>
+
+                        <td>
+                            <span class="status-badge active">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-button view"
+                                onclick="viewAssignment('FA003')"
+                            >
+                                View
+                            </button>
+
+                            <button
+                                class="table-button delete"
+                                onclick="removeAssignment('FA003')"
+                            >
+                                Remove
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>FA004</td>
+
+                        <td>FAC004</td>
+
+                        <td>Prof. Karthik Raj</td>
+
+                        <td>DB204 - Database Management</td>
+
+                        <td>22-06-2026</td>
+
+                        <td>2026-2027</td>
+
+                        <td>Semester 1</td>
+
+                        <td>
+                            <span class="status-badge active">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-button view"
+                                onclick="viewAssignment('FA004')"
+                            >
+                                View
+                            </button>
+
+                            <button
+                                class="table-button delete"
+                                onclick="removeAssignment('FA004')"
+                            >
+                                Remove
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>FA005</td>
+
+                        <td>FAC005</td>
+
+                        <td>Dr. Divya Mohan</td>
+
+                        <td>AI305 - Artificial Intelligence</td>
+
+                        <td>25-06-2026</td>
+
+                        <td>2026-2027</td>
+
+                        <td>Semester 1</td>
+
+                        <td>
+                            <span class="status-badge active">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-button view"
+                                onclick="viewAssignment('FA005')"
+                            >
+                                View
+                            </button>
+
+                            <button
+                                class="table-button delete"
+                                onclick="removeAssignment('FA005')"
+                            >
+                                Remove
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>FA006</td>
+
+                        <td>FAC006</td>
+
+                        <td>Prof. Suresh Babu</td>
+
+                        <td>WD210 - Web Development</td>
+
+                        <td>28-06-2026</td>
+
+                        <td>2026-2027</td>
+
+                        <td>Semester 1</td>
+
+                        <td>
+                            <span class="status-badge inactive">
+                                Inactive
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-button view"
+                                onclick="viewAssignment('FA006')"
+                            >
+                                View
+                            </button>
+
+                            <button
+                                class="table-button delete"
+                                onclick="removeAssignment('FA006')"
+                            >
+                                Remove
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    /* Assign Faculty Form */
+
+    document
+        .getElementById("facultyAssignmentForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const faculty =
+                document.getElementById("faculty").value;
+
+            const course =
+                document.getElementById("course").value;
+
+            const assignmentDate =
+                document.getElementById("assignmentDate").value;
+
+            const academicYear =
+                document.getElementById("academicYear").value;
+
+            const semester =
+                document.getElementById("semester").value;
+
+            const status =
+                document.getElementById("status").value;
+
+
+            if (
+                faculty &&
+                course &&
+                assignmentDate &&
+                academicYear &&
+                semester &&
+                status
+            ) {
+
+                alert(
+                    "Faculty assigned successfully!"
+                );
+
+                this.reset();
+
+            }
+
+        });
+
+
+    /* View Assignment */
+
+    function viewAssignment(id) {
+
+        alert(
+            "Viewing Faculty Assignment: " + id
+        );
+
+    }
+
+
+    /* Remove Assignment */
+
+    function removeAssignment(id) {
+
+        const confirmation =
+            confirm(
+                "Are you sure you want to remove assignment " +
+                id +
+                "?"
+            );
+
+        if (confirmation) {
+
+            alert(
+                "Assignment " +
+                id +
+                " has been removed successfully."
+            );
+
+        }
+
+    }
+
+
+    /* Search */
+
+    document
+        .getElementById("searchAssignment")
+        .addEventListener("keyup", function() {
+
+            const searchValue =
+                this.value.toLowerCase();
+
+            const rows =
+                document.querySelectorAll(
+                    "#assignmentTableBody tr"
+                );
+
+            rows.forEach(function(row) {
+
+                const rowText =
+                    row.textContent.toLowerCase();
+
+                if (rowText.includes(searchValue)) {
+
+                    row.style.display = "";
+
+                } else {
+
+                    row.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+
+    /* Course Filter */
+
+    document
+        .getElementById("courseFilter")
+        .addEventListener("change", filterAssignments);
+
+
+    /* Status Filter */
+
+    document
+        .getElementById("statusFilter")
+        .addEventListener("change", filterAssignments);
+
+
+    function filterAssignments() {
+
+        const courseValue =
+            document.getElementById("courseFilter").value;
+
+        const statusValue =
+            document.getElementById("statusFilter").value;
+
+        const rows =
+            document.querySelectorAll(
+                "#assignmentTableBody tr"
+            );
+
+
+        rows.forEach(function(row) {
+
+            const rowText =
+                row.textContent;
+
+            const courseMatch =
+                courseValue === "all" ||
+                rowText.includes(
+                    courseValue
+                );
+
+
+            const statusMatch =
+                statusValue === "all" ||
+                rowText.includes(
+                    statusValue
+                );
+
+
+            if (
+                courseMatch &&
+                statusMatch
+            ) {
+
+                row.style.display = "";
+
+            } else {
+
+                row.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Management - Admin | Quiz Master</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="main-header">
+		<div class="logo"><h1>Quiz Master</h1></div>
+		<nav class="main-nav">
+			<a href="admin_dashboard.html">Dashboard</a><a href="course_management.html">Courses</a>
+			<a href="student_management.html" class="active">Students</a><a href="faculty_management.html">Faculty</a>
+			<a href="student_enrollment.html">Enrollment</a><a href="faculty_assignment.html">Faculty Assignment</a>
+			<a href="quiz_management.html">Quizzes</a><a href="admin_reports.html">Reports</a>
+			<a href="admin_profile.html">Profile</a><a href="login.html">Logout</a>
+		</nav>
+	</header>
+
+	<main class="management-container">
+		<div class="dashboard-heading"><div><h2>Student Management</h2><p>Add, view and manage student accounts.</p></div></div>
+		<div class="management-card">
+			<h3>Add New Student</h3>
+			<form id="studentForm">
+				<div class="form-row">
+					<div class="form-group"><label for="studentId">Student ID</label><input id="studentId" placeholder="Example: STU001" required></div>
+					<div class="form-group"><label for="studentName">Full Name</label><input id="studentName" placeholder="Enter student name" required></div>
+				</div>
+				<div class="form-row">
+					<div class="form-group"><label for="studentEmail">Email Address</label><input type="email" id="studentEmail" placeholder="student@example.com" required></div>
+					<div class="form-group"><label for="studentPhone">Phone Number</label><input type="tel" id="studentPhone" placeholder="+91 98765 43210" required></div>
+				</div>
+				<div class="form-row">
+					<div class="form-group"><label for="studentDepartment">Department</label><select id="studentDepartment" required><option value="">Select Department</option><option>AI &amp; DS</option><option>CSE</option><option>ECE</option><option>EEE</option><option>MECH</option></select></div>
+					<div class="form-group"><label for="studentYear">Year</label><select id="studentYear" required><option value="">Select Year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option></select></div>
+				</div>
+				<div class="form-row">
+					<div class="form-group"><label for="studentPassword">Temporary Password</label><input type="password" id="studentPassword" placeholder="Enter temporary password" required></div>
+					<div class="form-group"><label for="studentStatus">Account Status</label><select id="studentStatus"><option>Active</option><option>Inactive</option></select></div>
+				</div>
+				<div class="form-actions"><button type="reset" class="secondary-button">Clear</button><button class="primary-button">Add Student</button></div>
+			</form>
+		</div>
+
+		<div class="management-card">
+			<div class="table-header"><div><h3>All Students</h3><p>Total Students: <strong id="studentCount">8</strong></p></div></div>
+			<div class="form-row">
+				<div class="form-group"><label for="searchStudent">Search Student</label><input id="searchStudent" placeholder="Search ID, name or email..."></div>
+				<div class="form-group"><label for="filterDepartment">Department</label><select id="filterDepartment"><option value="">All Departments</option><option>AI &amp; DS</option><option>CSE</option><option>ECE</option><option>EEE</option><option>MECH</option></select></div>
+				<div class="form-group"><label for="filterStudentStatus">Status</label><select id="filterStudentStatus"><option value="">All Status</option><option>Active</option><option>Inactive</option></select></div>
+			</div>
+			<div class="table-container"><table class="management-table"><thead><tr><th>Student ID</th><th>Name</th><th>Email</th><th>Department</th><th>Year</th><th>Phone</th><th>Status</th><th>Actions</th></tr></thead><tbody id="studentTableBody"></tbody></table></div>
+		</div>
+	</main>
+	<footer class="main-footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+	<script>
+		const students=[['STU001','Priya Sharma','priya@example.com','AI & DS','3rd Year','+91 98765 10001','Active'],['STU002','Rahul Kumar','rahul@example.com','CSE','3rd Year','+91 98765 10002','Active'],['STU003','Ananya Raj','ananya@example.com','AI & DS','2nd Year','+91 98765 10003','Active'],['STU004','Arjun Kumar','arjun@example.com','ECE','4th Year','+91 98765 10004','Active'],['STU005','Sneha Devi','sneha@example.com','CSE','2nd Year','+91 98765 10005','Active'],['STU006','Vishnu Prasad','vishnu@example.com','EEE','3rd Year','+91 98765 10006','Active'],['STU007','Divya Mohan','divya@example.com','AI & DS','4th Year','+91 98765 10007','Active'],['STU008','Karthik Raj','karthik@example.com','MECH','4th Year','+91 98765 10008','Inactive']];
+		const body=document.getElementById('studentTableBody'), count=document.getElementById('studentCount');
+		function render(){const q=document.getElementById('searchStudent').value.toLowerCase(),d=document.getElementById('filterDepartment').value,s=document.getElementById('filterStudentStatus').value;body.innerHTML='';let n=0;students.forEach(x=>{if((x[0]+' '+x[1]+' '+x[2]).toLowerCase().includes(q)&&(!d||x[3]===d)&&(!s||x[6]===s)){n++;const tr=document.createElement('tr');tr.innerHTML=`<td>${x[0]}</td><td>${x[1]}</td><td>${x[2]}</td><td>${x[3]}</td><td>${x[4]}</td><td>${x[5]}</td><td><span class="status-badge status-${x[6].toLowerCase()}">${x[6]}</span></td><td><button class="table-button edit-button" onclick="viewStudent('${x[0]}')">View</button> <button class="table-button delete-button" onclick="deleteStudent('${x[0]}')">Delete</button></td>`;body.appendChild(tr)}});count.textContent=n}
+		function viewStudent(id){alert('Student Details\n\nStudent ID: '+id+'\n\nComplete student information will be connected to the database later.')}
+		function deleteStudent(id){if(confirm('Are you sure you want to delete '+id+'?'))alert('Student '+id+' deleted successfully.')}
+		document.getElementById('studentForm').addEventListener('submit',e=>{e.preventDefault();alert('Student Added Successfully!');e.target.reset()});['searchStudent','filterDepartment','filterStudentStatus'].forEach(id=>document.getElementById(id).addEventListener(id==='searchStudent'?'input':'change',render));render();
+	</script>
+</body>
+</html>

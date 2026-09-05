@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Python Basics Quiz - Quiz Master</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION BAR
+         ===================================================== -->
+
+    <nav>
+
+        <div class="logo">
+            QUIZ MASTER
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="student_dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="my_courses.html">
+                My Courses
+            </a>
+
+            <a href="available_quizzes.html">
+                Quizzes
+            </a>
+
+            <a href="#">
+                Results
+            </a>
+
+            <a href="login.html">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN QUIZ CONTENT
+         ===================================================== -->
+
+    <main>
+
+        <section class="quiz-page">
+
+
+            <!-- =================================================
+                 QUIZ HEADER
+                 ================================================= -->
+
+            <div class="quiz-header">
+
+                <div>
+
+                    <span class="quiz-header-subject">
+                        Python Programming
+                    </span>
+
+                    <h1>
+                        Python Basics Quiz
+                    </h1>
+
+                    <p>
+                        Answer all questions carefully.
+                    </p>
+
+                </div>
+
+
+                <!-- TIMER -->
+
+                <div class="quiz-timer">
+
+                    <span class="timer-label">
+                        Time Remaining
+                    </span>
+
+                    <strong id="timer">
+                        30:00
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUIZ PROGRESS
+                 ================================================= -->
+
+            <div class="quiz-progress-section">
+
+                <div class="quiz-progress-header">
+
+                    <span>
+                        Quiz Progress
+                    </span>
+
+                    <strong>
+                        Question 1 of 20
+                    </strong>
+
+                </div>
+
+
+                <div class="quiz-progress-container">
+
+                    <div
+                        class="quiz-progress-bar"
+                        style="width: 5%;"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUIZ CONTENT
+                 ================================================= -->
+
+            <div class="quiz-content">
+
+
+                <!-- =================================================
+                     LEFT SIDE - QUESTION
+                     ================================================= -->
+
+                <div class="question-section">
+
+
+                    <!-- QUESTION CARD -->
+
+                    <div class="question-card">
+
+
+                        <!-- QUESTION NUMBER -->
+
+                        <div class="question-number">
+
+                            Question 1
+
+                            <span>
+                                2 Marks
+                            </span>
+
+                        </div>
+
+
+                        <!-- QUESTION -->
+
+                        <h2>
+
+                            Which of the following is used
+                            to define a function in Python?
+
+                        </h2>
+
+
+                        <!-- ANSWER OPTIONS -->
+
+                        <div class="options">
+
+
+                            <!-- OPTION A -->
+
+                            <label class="option">
+
+                                <input
+                                    type="radio"
+                                    name="question"
+                                    value="0"
+                                >
+
+                                <span class="option-letter">
+                                    A
+                                </span>
+
+                                <span class="option-text">
+                                    function
+                                </span>
+
+                            </label>
+
+
+                            <!-- OPTION B -->
+
+                            <label class="option">
+
+                                <input
+                                    type="radio"
+                                    name="question"
+                                    value="1"
+                                >
+
+                                <span class="option-letter">
+                                    B
+                                </span>
+
+                                <span class="option-text">
+                                    def
+                                </span>
+
+                            </label>
+
+
+                            <!-- OPTION C -->
+
+                            <label class="option">
+
+                                <input
+                                    type="radio"
+                                    name="question"
+                                    value="2"
+                                >
+
+                                <span class="option-letter">
+                                    C
+                                </span>
+
+                                <span class="option-text">
+                                    define
+                                </span>
+
+                            </label>
+
+
+                            <!-- OPTION D -->
+
+                            <label class="option">
+
+                                <input
+                                    type="radio"
+                                    name="question"
+                                    value="3"
+                                >
+
+                                <span class="option-letter">
+                                    D
+                                </span>
+
+                                <span class="option-text">
+                                    func
+                                </span>
+
+                            </label>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PREVIOUS / NEXT BUTTONS
+                         ================================================= -->
+
+                    <div class="question-buttons">
+
+
+                        <button
+                            type="button"
+                            class="previous-button"
+                            disabled
+                        >
+
+                            ← Previous
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="next-button"
+                        >
+
+                            Next →
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     RIGHT SIDE - QUESTION NAVIGATION
+                     ================================================= -->
+
+                <aside class="question-sidebar">
+
+
+                    <!-- =================================================
+                         QUESTION NAVIGATION
+                         ================================================= -->
+
+                    <div class="question-navigation-card">
+
+                        <h2>
+                            Questions
+                        </h2>
+
+                        <p class="navigation-info">
+                            Click a number to move to that question.
+                        </p>
+
+
+                        <div class="question-numbers">
+
+
+                            <button
+                                type="button"
+                                class="question-number-button active"
+                            >
+                                1
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                2
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                3
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                4
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                5
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                6
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                7
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                8
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                9
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                10
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                11
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                12
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                13
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                14
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                15
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                16
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                17
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                18
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                19
+                            </button>
+
+                            <button
+                                type="button"
+                                class="question-number-button"
+                            >
+                                20
+                            </button>
+
+
+                        </div>
+
+
+                        <!-- LEGEND -->
+
+                        <div class="question-legend">
+
+
+                            <div class="legend-item">
+
+                                <span
+                                    class="legend-box current"
+                                ></span>
+
+                                Current Question
+
+                            </div>
+
+
+                            <div class="legend-item">
+
+                                <span
+                                    class="legend-box answered"
+                                ></span>
+
+                                Answered
+
+                            </div>
+
+
+                            <div class="legend-item">
+
+                                <span
+                                    class="legend-box unanswered"
+                                ></span>
+
+                                Not Answered
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         QUIZ SUMMARY
+                         ================================================= -->
+
+                    <div class="quiz-summary-card">
+
+                        <h2>
+                            Quiz Summary
+                        </h2>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Total Questions
+                            </span>
+
+                            <strong>
+                                20
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Answered
+                            </span>
+
+                            <strong>
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Unanswered
+                            </span>
+
+                            <strong>
+                                20
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Total Marks
+                            </span>
+
+                            <strong>
+                                40
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </aside>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 SUBMIT QUIZ SECTION
+                 ================================================= -->
+
+            <div class="submit-section">
+
+                <div>
+
+                    <strong>
+                        Ready to submit?
+                    </strong>
+
+                    <p>
+                        Make sure you have answered all the questions
+                        before submitting the quiz.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="submit-quiz-button"
+                >
+
+                    Submit Quiz
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Quiz Master. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         QUIZ JAVASCRIPT
+         ===================================================== -->
+
+    <script src="quiz.js"></script>
+
+
+</body>
+
+</html>

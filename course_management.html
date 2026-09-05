@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Management - Admin | Quiz Master</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo"><h1>Quiz Master</h1></div>
+    <nav class="main-nav">
+      <a href="admin_dashboard.html">Dashboard</a>
+      <a href="course_management.html" class="active">Courses</a>
+      <a href="student_management.html">Students</a>
+      <a href="faculty_management.html">Faculty</a>
+      <a href="student_enrollment.html">Enrollment</a>
+      <a href="faculty_assignment.html">Faculty Assignment</a>
+      <a href="quiz_management.html">Quizzes</a>
+      <a href="admin_reports.html">Reports</a>
+      <a href="admin_profile.html">Profile</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </header>
+
+  <main class="management-container">
+    <div class="dashboard-heading">
+      <div><h2>Course Management</h2><p>Create, manage and monitor courses in Quiz Master.</p></div>
+    </div>
+
+    <div class="management-card">
+      <h3>Add New Course</h3>
+      <form id="courseForm">
+        <div class="form-row">
+          <div class="form-group"><label for="courseName">Course Name</label><input id="courseName" required placeholder="Enter course name"></div>
+          <div class="form-group"><label for="courseCode">Course Code</label><input id="courseCode" required placeholder="Example: ADS301"></div>
+        </div>
+        <div class="form-group"><label for="courseDescription">Course Description</label><textarea id="courseDescription" rows="4" required placeholder="Enter course description..."></textarea></div>
+        <div class="form-row">
+          <div class="form-group"><label for="courseFaculty">Assign Faculty</label><select id="courseFaculty" required><option value="">Select Faculty</option><option>Dr. Arun Kumar</option><option>Dr. Meena Raj</option><option>Dr. Karthik</option><option>Dr. Priya</option></select></div>
+          <div class="form-group"><label for="courseDuration">Duration</label><input id="courseDuration" required placeholder="Example: 6 Months"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="courseSemester">Semester</label><select id="courseSemester" required><option value="">Select Semester</option><option>Semester 1</option><option>Semester 2</option><option>Semester 3</option><option>Semester 4</option><option>Semester 5</option><option>Semester 6</option><option>Semester 7</option><option>Semester 8</option></select></div>
+          <div class="form-group"><label for="courseStatus">Course Status</label><select id="courseStatus"><option>Active</option><option>Inactive</option><option>Draft</option></select></div>
+        </div>
+        <div class="form-actions"><button type="reset" class="secondary-button">Clear</button><button type="submit" class="primary-button">Add Course</button></div>
+      </form>
+    </div>
+
+    <div class="management-card">
+      <div class="table-header"><div><h3>All Courses</h3><p>Total Courses: <strong id="courseCount">8</strong></p></div></div>
+      <div class="form-row">
+        <div class="form-group"><label for="searchCourse">Search Course</label><input id="searchCourse" placeholder="Search course name or code..."></div>
+        <div class="form-group"><label for="filterFaculty">Faculty</label><select id="filterFaculty"><option value="">All Faculty</option><option>Dr. Arun Kumar</option><option>Dr. Meena Raj</option><option>Dr. Karthik</option><option>Dr. Priya</option></select></div>
+        <div class="form-group"><label for="filterStatus">Status</label><select id="filterStatus"><option value="">All Status</option><option>Active</option><option>Inactive</option><option>Draft</option></select></div>
+      </div>
+      <div class="table-container"><table class="management-table"><thead><tr><th>Code</th><th>Course Name</th><th>Faculty</th><th>Semester</th><th>Duration</th><th>Students</th><th>Status</th><th>Actions</th></tr></thead><tbody id="courseTableBody"></tbody></table></div>
+    </div>
+  </main>
+
+  <footer class="main-footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+  <script>
+    const courses = [
+      ['PY301','Python Programming','Dr. Arun Kumar','Semester 5','6 Months',45,'Active'],
+      ['SQL302','SQL Fundamentals','Dr. Meena Raj','Semester 5','6 Months',38,'Active'],
+      ['DS401','Data Science','Dr. Karthik','Semester 6','6 Months',42,'Active'],
+      ['ML402','Machine Learning','Dr. Arun Kumar','Semester 6','6 Months',40,'Active'],
+      ['AI501','Artificial Intelligence','Dr. Priya','Semester 7','6 Months',35,'Active'],
+      ['WD303','Web Development','Dr. Meena Raj','Semester 5','6 Months',30,'Active'],
+      ['DB304','Database Management','Dr. Karthik','Semester 5','6 Months',36,'Inactive'],
+      ['DL601','Deep Learning','Dr. Priya','Semester 8','6 Months',24,'Draft']
+    ];
+    const body = document.getElementById('courseTableBody');
+    function render() {
+      const q = document.getElementById('searchCourse').value.toLowerCase();
+      const faculty = document.getElementById('filterFaculty').value;
+      const status = document.getElementById('filterStatus').value;
+      const visible = courses.filter(c => (!q || c[0].toLowerCase().includes(q) || c[1].toLowerCase().includes(q)) && (!faculty || c[2] === faculty) && (!status || c[6] === status));
+      body.innerHTML = visible.map(c => `<tr><td>${c[0]}</td><td>${c[1]}</td><td>${c[2]}</td><td>${c[3]}</td><td>${c[4]}</td><td>${c[5]}</td><td><span class="status-badge status-${c[6].toLowerCase()}">${c[6]}</span></td><td><button class="table-button edit-button" onclick="viewCourse('${c[0]}')">View</button> <button class="table-button delete-button" onclick="deleteCourse('${c[0]}')">Delete</button></td></tr>`).join('');
+      document.getElementById('courseCount').textContent = visible.length;
+    }
+    document.getElementById('courseForm').addEventListener('submit', e => { e.preventDefault(); alert('Course Added Successfully!'); e.target.reset(); });
+    ['searchCourse','filterFaculty','filterStatus'].forEach(id => document.getElementById(id).addEventListener('input', render));
+    function viewCourse(code) { alert('Course Details\n\nCourse Code: ' + code); }
+    function deleteCourse(code) { if (confirm('Are you sure you want to delete ' + code + '?')) alert('Course ' + code + ' deleted successfully.'); }
+    render();
+  </script>
+</body>
+</html>

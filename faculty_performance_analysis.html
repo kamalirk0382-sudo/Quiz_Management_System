@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Analysis - Faculty | Quiz Master</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo"><h1>Quiz Master</h1></div>
+    <nav class="main-nav">
+      <a href="faculty_dashboard.html">Dashboard</a>
+      <a href="faculty_courses.html">My Courses</a>
+      <a href="create_quiz.html">Create Quiz</a>
+      <a href="add_question.html">Add Question</a>
+      <a href="question_bank.html">Question Bank</a>
+      <a href="schedule_quiz.html">Schedule Quiz</a>
+      <a href="student_results.html">Results</a>
+      <a href="faculty_performance_analysis.html" class="active">Analysis</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </header>
+
+  <main class="management-container">
+    <div class="dashboard-heading"><div><h2>Performance Analysis</h2><p>Analyze student performance and quiz results.</p></div></div>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-icon">📊</div><div><h3>72%</h3><p>Average Score</p></div></div>
+      <div class="stat-card"><div class="stat-icon">🏆</div><div><h3>95%</h3><p>Highest Score</p></div></div>
+      <div class="stat-card"><div class="stat-icon">📉</div><div><h3>40%</h3><p>Lowest Score</p></div></div>
+      <div class="stat-card"><div class="stat-icon">✅</div><div><h3>75%</h3><p>Pass Percentage</p></div></div>
+    </div>
+
+    <div class="management-card"><h3>Analysis Filter</h3><div class="form-row">
+      <div class="form-group"><label for="analysisQuiz">Select Quiz</label><select id="analysisQuiz"><option value="">All Quizzes</option><option>Python Basics Quiz</option><option>SQL Fundamentals Quiz</option><option>Data Science Quiz</option><option>Machine Learning Quiz</option></select></div>
+      <div class="form-group"><label for="analysisCourse">Select Course</label><select id="analysisCourse"><option value="">All Courses</option><option>Python Programming</option><option>SQL Fundamentals</option><option>Data Science</option><option>Machine Learning</option></select></div>
+    </div></div>
+
+    <div class="form-row">
+      <div class="management-card"><h3>Quiz-wise Average Performance</h3><canvas id="quizPerformanceChart"></canvas></div>
+      <div class="management-card"><h3>Pass vs Fail</h3><canvas id="passFailChart"></canvas></div>
+    </div>
+    <div class="management-card"><h3>Score Distribution</h3><canvas id="scoreDistributionChart"></canvas></div>
+
+    <div class="management-card"><div class="table-header"><div><h3>Student Performance</h3><p>Detailed performance summary of students.</p></div></div><div class="table-container"><table class="management-table"><thead><tr><th>Student</th><th>Quiz</th><th>Score</th><th>Percentage</th><th>Correct</th><th>Wrong</th><th>Status</th></tr></thead><tbody>
+      <script>
+        const rows=[['Arun Kumar','Python Basics Quiz','36 / 40','90%',18,2,'Pass',1],['Priya Sharma','Python Basics Quiz','32 / 40','80%',16,4,'Pass',1],['Rahul Raj','SQL Fundamentals Quiz','28 / 40','70%',14,6,'Pass',1],['Divya S','SQL Fundamentals Quiz','18 / 40','45%',9,11,'Fail',0],['Karthik M','Data Science Quiz','34 / 40','85%',17,3,'Pass',1],['Sneha R','Data Science Quiz','24 / 40','60%',12,8,'Pass',1],['Mohan Kumar','Machine Learning Quiz','16 / 40','40%',8,12,'Fail',0],['Anitha P','Machine Learning Quiz','38 / 40','95%',19,1,'Pass',1]];
+        document.write(rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td><td><span class="status-badge ${r[7]?'status-active':'status-inactive'}">${r[6]}</span></td></tr>`).join(''));
+      </script>
+    </tbody></table></div></div>
+  </main>
+  <footer class="main-footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+
+  <script>
+    const chart=(id,type,labels,data,label)=>new Chart(document.getElementById(id),{type,data:{labels,datasets:[{label,data}]},options:{responsive:true,scales:type==='bar'?{y:{beginAtZero:true,max:100}}:type==='line'?{y:{beginAtZero:true}}:undefined}});
+    chart('quizPerformanceChart','bar',['Python','SQL','Data Science','Machine Learning'],[85,65,72,68],'Average Score (%)');
+    new Chart(document.getElementById('passFailChart'),{type:'doughnut',data:{labels:['Pass','Fail'],datasets:[{data:[75,25]}]},options:{responsive:true}});
+    chart('scoreDistributionChart','line',['0-20%','21-40%','41-60%','61-80%','81-100%'],[2,5,18,40,55],'Number of Students');
+  </script>
+</body>
+</html>

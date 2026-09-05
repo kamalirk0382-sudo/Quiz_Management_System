@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Learning Materials - Faculty | Quiz Master</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="main-header">
+		<div class="logo"><h1>Quiz Master</h1></div>
+		<nav class="main-nav">
+			<a href="faculty_dashboard.html">Dashboard</a>
+			<a href="faculty_courses.html">My Courses</a>
+			<a href="create_quiz.html">Create Quiz</a>
+			<a href="add_question.html">Add Question</a>
+			<a href="question_bank.html">Question Bank</a>
+			<a href="schedule_quiz.html">Schedule Quiz</a>
+			<a href="student_results.html">Results</a>
+			<a href="faculty_performance_analysis.html">Analysis</a>
+			<a href="faculty_materials.html" class="active">Materials</a>
+			<a href="login.html">Logout</a>
+		</nav>
+	</header>
+
+	<main class="management-container">
+		<div class="dashboard-heading">
+			<div><h2>Learning Materials</h2><p>Add and manage learning materials for students.</p></div>
+		</div>
+
+		<div class="management-card">
+			<h3>Add Learning Material</h3>
+			<form id="materialForm">
+				<div class="form-row">
+					<div class="form-group">
+						<label for="materialCourse">Select Course</label>
+						<select id="materialCourse" required>
+							<option value="">Select Course</option>
+							<option>Python Programming</option><option>SQL Fundamentals</option>
+							<option>Data Science</option><option>Machine Learning</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="materialType">Material Type</label>
+						<select id="materialType" required>
+							<option value="">Select Type</option>
+							<option>PDF</option><option>Video</option><option>Notes</option><option>Presentation</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group full-width"><label for="materialTitle">Material Title</label><input type="text" id="materialTitle" placeholder="Enter material title" required></div>
+				<div class="form-group full-width"><label for="materialDescription">Description</label><textarea id="materialDescription" rows="5" placeholder="Enter a short description of the material..."></textarea></div>
+				<div class="form-group full-width">
+					<label for="materialFile">Upload Material</label>
+					<input type="file" id="materialFile">
+					<small>Supported files: PDF, PPT, PPTX, DOC, DOCX, MP4 and other educational resources.</small>
+				</div>
+				<div class="form-actions"><button type="reset" class="secondary-button">Clear</button><button type="submit" class="primary-button">Add Material</button></div>
+			</form>
+		</div>
+
+		<div class="management-card">
+			<div class="table-header"><div><h3>Available Learning Materials</h3><p>Total Materials: <strong id="materialCount">6</strong></p></div></div>
+			<div class="form-row">
+				<div class="form-group"><label for="searchMaterial">Search Material</label><input type="text" id="searchMaterial" placeholder="Search material title..."></div>
+				<div class="form-group"><label for="filterMaterialCourse">Course</label><select id="filterMaterialCourse"><option value="">All Courses</option><option>Python Programming</option><option>SQL Fundamentals</option><option>Data Science</option><option>Machine Learning</option></select></div>
+			</div>
+			<div class="table-container">
+				<table class="management-table">
+					<thead><tr><th>ID</th><th>Title</th><th>Course</th><th>Type</th><th>Uploaded Date</th><th>Status</th><th>Actions</th></tr></thead>
+					<tbody id="materialTableBody">
+						<tr><td>M001</td><td>Python Basics Notes</td><td>Python Programming</td><td>PDF</td><td>01-09-2026</td><td><span class="status-badge status-active">Active</span></td><td><button class="table-button edit-button" onclick="viewMaterial('M001')">View</button> <button class="table-button delete-button" onclick="deleteMaterial('M001')">Delete</button></td></tr>
+						<tr><td>M002</td><td>Python Functions</td><td>Python Programming</td><td>Video</td><td>02-09-2026</td><td><span class="status-badge status-active">Active</span></td><td><button class="table-button edit-button" onclick="viewMaterial('M002')">View</button> <button class="table-button delete-button" onclick="deleteMaterial('M002')">Delete</button></td></tr>
+						<tr><td>M003</td><td>SQL Query Notes</td><td>SQL Fundamentals</td><td>PDF</td><td>28-08-2026</td><td><span class="status-badge status-active">Active</span></td><td><button class="table-button edit-button" onclick="viewMaterial('M003')">View</button> <button class="table-button delete-button" onclick="deleteMaterial('M003')">Delete</button></td></tr>
+						<tr><td>M004</td><td>Data Science Introduction</td><td>Data Science</td><td>Presentation</td><td>25-08-2026</td><td><span class="status-badge status-active">Active</span></td><td><button class="table-button edit-button" onclick="viewMaterial('M004')">View</button> <button class="table-button delete-button" onclick="deleteMaterial('M004')">Delete</button></td></tr>
+						<tr><td>M005</td><td>Machine Learning Algorithms</td><td>Machine Learning</td><td>Notes</td><td>20-08-2026</td><td><span class="status-badge status-active">Active</span></td><td><button class="table-button edit-button" onclick="viewMaterial('M005')">View</button> <button class="table-button delete-button" onclick="deleteMaterial('M005')">Delete</button></td></tr>
+						<tr><td>M006</td><td>Machine Learning Basics</td><td>Machine Learning</td><td>PDF</td><td>18-08-2026</td><td><span class="status-badge status-active">Active</span></td><td><button class="table-button edit-button" onclick="viewMaterial('M006')">View</button> <button class="table-button delete-button" onclick="deleteMaterial('M006')">Delete</button></td></tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+
+	<footer class="main-footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+	<script>
+		const form = document.getElementById('materialForm');
+		form.addEventListener('submit', event => {
+			event.preventDefault();
+			alert('Learning Material Added Successfully!\n\nTitle: ' + document.getElementById('materialTitle').value + '\nCourse: ' + document.getElementById('materialCourse').value + '\nType: ' + document.getElementById('materialType').value);
+			form.reset();
+		});
+		const search = document.getElementById('searchMaterial');
+		const courseFilter = document.getElementById('filterMaterialCourse');
+		const body = document.getElementById('materialTableBody');
+		const count = document.getElementById('materialCount');
+		function filterMaterials() {
+			const text = search.value.toLowerCase(), course = courseFilter.value;
+			let visible = 0;
+			body.querySelectorAll('tr').forEach(row => {
+				const matches = row.cells[1].textContent.trim().toLowerCase().includes(text) && (!course || row.cells[2].textContent.trim() === course);
+				row.style.display = matches ? '' : 'none';
+				if (matches) visible++;
+			});
+			count.textContent = visible;
+		}
+		search.addEventListener('input', filterMaterials);
+		courseFilter.addEventListener('change', filterMaterials);
+		function viewMaterial(id) { alert('Learning Material\n\nMaterial ID: ' + id + '\n\nThe material viewing/download functionality will be connected to the backend later.'); }
+		function deleteMaterial(id) { if (confirm('Are you sure you want to delete ' + id + '?')) alert(id + ' has been deleted successfully.'); }
+	</script>
+</body>
+</html>

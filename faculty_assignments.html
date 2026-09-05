@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Assignments - Faculty | Quiz Master</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="main-header">
+		<div class="logo"><h1>Quiz Master</h1></div>
+		<nav class="main-nav">
+			<a href="faculty_dashboard.html">Dashboard</a>
+			<a href="faculty_courses.html">My Courses</a>
+			<a href="create_quiz.html">Create Quiz</a>
+			<a href="add_question.html">Add Question</a>
+			<a href="question_bank.html">Question Bank</a>
+			<a href="schedule_quiz.html">Schedule Quiz</a>
+			<a href="student_results.html">Results</a>
+			<a href="faculty_performance_analysis.html">Analysis</a>
+			<a href="faculty_materials.html">Materials</a>
+			<a href="faculty_assignments.html" class="active">Assignments</a>
+			<a href="login.html">Logout</a>
+		</nav>
+	</header>
+
+	<main class="management-container">
+		<div class="dashboard-heading"><div><h2>Assignment Management</h2><p>Create and manage assignments for students.</p></div></div>
+		<div class="management-card">
+			<h3>Create Assignment</h3>
+			<form id="assignmentForm">
+				<div class="form-row">
+					<div class="form-group"><label for="assignmentCourse">Select Course</label><select id="assignmentCourse" required><option value="">Select Course</option><option>Python Programming</option><option>SQL Fundamentals</option><option>Data Science</option><option>Machine Learning</option></select></div>
+					<div class="form-group"><label for="assignmentTitle">Assignment Title</label><input id="assignmentTitle" type="text" placeholder="Enter assignment title" required></div>
+				</div>
+				<div class="form-group full-width"><label for="assignmentDescription">Assignment Description</label><textarea id="assignmentDescription" rows="5" placeholder="Enter assignment instructions..." required></textarea></div>
+				<div class="form-row">
+					<div class="form-group"><label for="dueDate">Due Date</label><input id="dueDate" type="date" required></div>
+					<div class="form-group"><label for="maxMarks">Maximum Marks</label><input id="maxMarks" type="number" min="1" placeholder="Example: 20" required></div>
+				</div>
+				<div class="form-row">
+					<div class="form-group"><label for="assignmentFile">Assignment File</label><input id="assignmentFile" type="file"><small>Upload PDF, DOC, DOCX, PPT or other assignment resources.</small></div>
+					<div class="form-group"><label for="assignmentStatus">Status</label><select id="assignmentStatus" required><option>Published</option><option>Draft</option><option>Closed</option></select></div>
+				</div>
+				<div class="form-actions"><button type="reset" class="secondary-button">Clear</button><button type="submit" class="primary-button">Create Assignment</button></div>
+			</form>
+		</div>
+
+		<div class="management-card">
+			<div class="table-header"><div><h3>All Assignments</h3><p>Total Assignments: <strong id="assignmentCount">6</strong></p></div></div>
+			<div class="form-row">
+				<div class="form-group"><label for="searchAssignment">Search Assignment</label><input id="searchAssignment" type="text" placeholder="Search assignment title..."></div>
+				<div class="form-group"><label for="filterAssignmentCourse">Course</label><select id="filterAssignmentCourse"><option value="">All Courses</option><option>Python Programming</option><option>SQL Fundamentals</option><option>Data Science</option><option>Machine Learning</option></select></div>
+				<div class="form-group"><label for="filterAssignmentStatus">Status</label><select id="filterAssignmentStatus"><option value="">All Status</option><option>Published</option><option>Draft</option><option>Closed</option></select></div>
+			</div>
+			<div class="table-container"><table class="management-table"><thead><tr><th>ID</th><th>Assignment</th><th>Course</th><th>Due Date</th><th>Marks</th><th>Submissions</th><th>Status</th><th>Actions</th></tr></thead><tbody id="assignmentTableBody"></tbody></table></div>
+		</div>
+	</main>
+	<footer class="main-footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+
+	<script>
+		const assignments = [
+			['A001','Python Variables and Data Types','Python Programming','10-09-2026','20','35 / 40','Published'],
+			['A002','Python Functions Practice','Python Programming','15-09-2026','20','28 / 40','Published'],
+			['A003','SQL Query Practice','SQL Fundamentals','12-09-2026','25','31 / 40','Published'],
+			['A004','Data Cleaning Assignment','Data Science','18-09-2026','25','25 / 40','Published'],
+			['A005','Machine Learning Model','Machine Learning','20-09-2026','30','20 / 40','Published'],
+			['A006','Classification Algorithms','Machine Learning','25-09-2026','30','15 / 40','Draft']
+		];
+		const body = document.getElementById('assignmentTableBody');
+		function render() {
+			const query = document.getElementById('searchAssignment').value.toLowerCase();
+			const course = document.getElementById('filterAssignmentCourse').value;
+			const status = document.getElementById('filterAssignmentStatus').value;
+			const visible = assignments.filter(a => a[1].toLowerCase().includes(query) && (!course || a[2] === course) && (!status || a[6] === status));
+			body.innerHTML = visible.map(a => `<tr><td>${a[0]}</td><td>${a[1]}</td><td>${a[2]}</td><td>${a[3]}</td><td>${a[4]}</td><td>${a[5]}</td><td><span class="status-badge ${a[6] === 'Published' ? 'status-active' : 'status-inactive'}">${a[6]}</span></td><td><button class="table-button edit-button" onclick="viewAssignment('${a[0]}')">View</button> <button class="table-button delete-button" onclick="deleteAssignment('${a[0]}')">Delete</button></td></tr>`).join('');
+			document.getElementById('assignmentCount').textContent = visible.length;
+		}
+		document.getElementById('assignmentForm').addEventListener('submit', e => { e.preventDefault(); alert('Assignment Created Successfully!'); e.target.reset(); });
+		['searchAssignment','filterAssignmentCourse','filterAssignmentStatus'].forEach(id => document.getElementById(id).addEventListener('input', render));
+		function viewAssignment(id) { alert('Assignment Details\n\nAssignment ID: ' + id + '\n\nDetailed assignment and student submission information will be connected to the backend later.'); }
+		function deleteAssignment(id) { if (confirm('Are you sure you want to delete ' + id + '?')) alert(id + ' has been deleted successfully.'); }
+		render();
+	</script>
+</body>
+</html>

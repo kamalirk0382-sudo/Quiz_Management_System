@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Faculty Management - Admin | Quiz Master</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="main-header">
+
+        <div class="logo">
+            <h1>Quiz Master</h1>
+        </div>
+
+        <nav class="main-nav">
+
+            <a href="admin_dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="course_management.html">
+                Courses
+            </a>
+
+            <a href="student_management.html">
+                Students
+            </a>
+
+            <a href="faculty_management.html" class="active">
+                Faculty
+            </a>
+
+            <a href="student_enrollment.html">
+                Enrollment
+            </a>
+
+            <a href="faculty_assignment.html">
+                Faculty Assignment
+            </a>
+
+            <a href="quiz_management.html">
+                Quizzes
+            </a>
+
+            <a href="admin_reports.html">
+                Reports
+            </a>
+
+            <a href="admin_profile.html">
+                Profile
+            </a>
+
+            <a href="login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="management-container">
+
+
+        <!-- PAGE HEADING -->
+
+        <div class="dashboard-heading">
+
+            <div>
+
+                <h2>
+                    Faculty Management
+                </h2>
+
+                <p>
+                    Add, view and manage faculty accounts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ADD FACULTY -->
+
+        <div class="management-card">
+
+            <h3>
+                Add New Faculty
+            </h3>
+
+
+            <form id="facultyForm">
+
+
+                <!-- FACULTY ID + NAME -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="facultyId">
+                            Faculty ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="facultyId"
+                            placeholder="Example: FAC001"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="facultyName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="facultyName"
+                            placeholder="Enter faculty name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EMAIL + PHONE -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="facultyEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="facultyEmail"
+                            placeholder="faculty@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="facultyPhone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="facultyPhone"
+                            placeholder="+91 98765 43210"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DEPARTMENT + DESIGNATION -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="facultyDepartment">
+                            Department
+                        </label>
+
+                        <select
+                            id="facultyDepartment"
+                            required
+                        >
+
+                            <option value="">
+                                Select Department
+                            </option>
+
+                            <option value="AI & DS">
+                                Artificial Intelligence & Data Science
+                            </option>
+
+                            <option value="CSE">
+                                Computer Science and Engineering
+                            </option>
+
+                            <option value="ECE">
+                                Electronics and Communication Engineering
+                            </option>
+
+                            <option value="EEE">
+                                Electrical and Electronics Engineering
+                            </option>
+
+                            <option value="MECH">
+                                Mechanical Engineering
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="designation">
+                            Designation
+                        </label>
+
+                        <select
+                            id="designation"
+                            required
+                        >
+
+                            <option value="">
+                                Select Designation
+                            </option>
+
+                            <option value="Assistant Professor">
+                                Assistant Professor
+                            </option>
+
+                            <option value="Associate Professor">
+                                Associate Professor
+                            </option>
+
+                            <option value="Professor">
+                                Professor
+                            </option>
+
+                            <option value="HOD">
+                                Head of Department
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QUALIFICATION + STATUS -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="qualification">
+                            Qualification
+                        </label>
+
+                        <input
+                            type="text"
+                            id="qualification"
+                            placeholder="Example: M.Tech / Ph.D"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="facultyStatus">
+                            Account Status
+                        </label>
+
+                        <select
+                            id="facultyStatus"
+                            required
+                        >
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+                            <option value="Inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BUTTONS -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="reset"
+                        class="secondary-button"
+                    >
+                        Clear
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Add Faculty
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+        <!-- FACULTY LIST -->
+
+        <div class="management-card">
+
+            <div class="table-header">
+
+                <div>
+
+                    <h3>
+                        All Faculty
+                    </h3>
+
+                    <p>
+
+                        Total Faculty:
+                        <strong id="facultyCount">
+                            8
+                        </strong>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SEARCH AND FILTER -->
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label for="searchFaculty">
+                        Search Faculty
+                    </label>
+
+                    <input
+                        type="text"
+                        id="searchFaculty"
+                        placeholder="Search ID, name or email..."
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="filterFacultyDepartment">
+                        Department
+                    </label>
+
+                    <select id="filterFacultyDepartment">
+
+                        <option value="">
+                            All Departments
+                        </option>
+
+                        <option value="AI & DS">
+                            AI & DS
+                        </option>
+
+                        <option value="CSE">
+                            CSE
+                        </option>
+
+                        <option value="ECE">
+                            ECE
+                        </option>
+
+                        <option value="EEE">
+                            EEE
+                        </option>
+
+                        <option value="MECH">
+                            MECH
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="filterFacultyStatus">
+                        Status
+                    </label>
+
+                    <select id="filterFacultyStatus">
+
+                        <option value="">
+                            All Status
+                        </option>
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FACULTY TABLE -->
+
+            <div class="table-container">
+
+                <table class="management-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Faculty ID</th>
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Department</th>
+
+                            <th>Designation</th>
+
+                            <th>Phone</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="facultyTableBody">
+
+
+                        <!-- FACULTY 1 -->
+
+                        <tr>
+
+                            <td>
+                                FAC001
+                            </td>
+
+                            <td>
+                                Dr. Priya Kumar
+                            </td>
+
+                            <td>
+                                priya.faculty@example.com
+                            </td>
+
+                            <td>
+                                AI & DS
+                            </td>
+
+                            <td>
+                                Professor
+                            </td>
+
+                            <td>
+                                +91 98765 20001
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewFaculty('FAC001')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="deleteFaculty('FAC001')"
+                                >
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- FACULTY 2 -->
+
+                        <tr>
+
+                            <td>
+                                FAC002
+                            </td>
+
+                            <td>
+                                Dr. Arun Raj
+                            </td>
+
+                            <td>
+                                arun.faculty@example.com
+                            </td>
+
+                            <td>
+                                CSE
+                            </td>
+
+                            <td>
+                                Associate Professor
+                            </td>
+
+                            <td>
+                                +91 98765 20002
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewFaculty('FAC002')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="deleteFaculty('FAC002')"
+                                >
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- FACULTY 3 -->
+
+                        <tr>
+
+                            <td>
+                                FAC003
+                            </td>
+
+                            <td>
+                                Dr. Meena Devi
+                            </td>
+
+                            <td>
+                                meena.faculty@example.com
+                            </td>
+
+                            <td>
+                                AI & DS
+                            </td>
+
+                            <td>
+                                Assistant Professor
+                            </td>
+
+                            <td>
+                                +91 98765 20003
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewFaculty('FAC003')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="deleteFaculty('FAC003')"
+                                >
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- FACULTY 4 -->
+
+                        <tr>
+
+                            <td>
+                                FAC004
+                            </td>
+
+                            <td>
+                                Dr. Karthik Mohan
+                            </td>
+
+                            <td>
+                                karthik.faculty@example.com
+                            </td>
+
+                            <td>
+                                ECE
+                            </td>
+
+                            <td>
+                                Professor
+                            </td>
+
+                            <td>
+                                +91 98765 20004
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewFaculty('FAC004')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="deleteFaculty('FAC004')"
+                                >
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- FACULTY 5 -->
+
+                        <tr>
+
+                            <td>
+                                FAC005
+                            </td>
+
+                            <td>
+                                Dr. Lakshmi Priya
+                            </td>
+
+                            <td>
+                                lakshmi.faculty@example.com
+                            </td>
+
+                            <td>
+                                EEE
+                            </td>
+
+                            <td>
+                                Assistant Professor
+                            </td>
+
+                            <td>
+                                +91 98765 20005
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewFaculty('FAC005')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="deleteFaculty('FAC005')"
+                                >
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- FACULTY 6 -->
+
+                        <tr>
+
+                            <td>
+                                FAC006
+                            </td>
+
+                            <td>
+                                Dr. Vishnu Kumar
+                            </td>
+
+                            <td>
+                                vishnu.faculty@example.com
+                            </td>
+
+                            <td>
+                                CSE
+                            </td>
+
+                            <td>
+                                Associate Professor
+                            </td>
+
+                            <td>
+                                +91 98765 20006
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewFaculty('FAC006')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="deleteFaculty('FAC006')"
+                                >
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- FACULTY 7 -->
+
+                        <tr>
+
+                            <td>
+                                FAC007
+                            </td>
+
+                            <td>
+                                Dr. Divya Mohan
+                            </td>
+
+                            <td>
+                                divya.faculty@example.com
+                            </td>
+
+                            <td>
+                                AI & DS
+                            </td>
+
+                            <td>
+                                Assistant Professor
+                            </td>
+
+                            <td>
+                                +91 98765 20007
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-active">
+                                    Active
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewFaculty('FAC007')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="deleteFaculty('FAC007')"
+                                >
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- FACULTY 8 -->
+
+                        <tr>
+
+                            <td>
+                                FAC008
+                            </td>
+
+                            <td>
+                                Dr. Suresh Kumar
+                            </td>
+
+                            <td>
+                                suresh.faculty@example.com
+                            </td>
+
+                            <td>
+                                MECH
+                            </td>
+
+                            <td>
+                                Professor
+                            </td>
+
+                            <td>
+                                +91 98765 20008
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-inactive">
+                                    Inactive
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="table-button edit-button"
+                                    onclick="viewFaculty('FAC008')"
+                                >
+                                    View
+                                </button>
+
+                                <button
+                                    class="table-button delete-button"
+                                    onclick="deleteFaculty('FAC008')"
+                                >
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="main-footer">
+
+        <p>
+            © 2026 Quiz Master. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* =================================
+           ADD FACULTY
+        ================================= */
+
+        const facultyForm =
+            document.getElementById("facultyForm");
+
+
+        facultyForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const facultyId =
+                    document.getElementById(
+                        "facultyId"
+                    ).value;
+
+
+                const facultyName =
+                    document.getElementById(
+                        "facultyName"
+                    ).value;
+
+
+                const facultyEmail =
+                    document.getElementById(
+                        "facultyEmail"
+                    ).value;
+
+
+                const department =
+                    document.getElementById(
+                        "facultyDepartment"
+                    ).value;
+
+
+                const designation =
+                    document.getElementById(
+                        "designation"
+                    ).value;
+
+
+                alert(
+                    "Faculty Added Successfully!\n\n" +
+
+                    "Faculty ID: " +
+                    facultyId +
+
+                    "\nName: " +
+                    facultyName +
+
+                    "\nEmail: " +
+                    facultyEmail +
+
+                    "\nDepartment: " +
+                    department +
+
+                    "\nDesignation: " +
+                    designation
+                );
+
+
+                facultyForm.reset();
+
+            }
+        );
+
+
+
+        /* =================================
+           SEARCH AND FILTER
+        ================================= */
+
+        const searchFaculty =
+            document.getElementById(
+                "searchFaculty"
+            );
+
+
+        const filterFacultyDepartment =
+            document.getElementById(
+                "filterFacultyDepartment"
+            );
+
+
+        const filterFacultyStatus =
+            document.getElementById(
+                "filterFacultyStatus"
+            );
+
+
+        const facultyTableBody =
+            document.getElementById(
+                "facultyTableBody"
+            );
+
+
+        const facultyCount =
+            document.getElementById(
+                "facultyCount"
+            );
+
+
+        function filterFaculty() {
+
+            const searchText =
+                searchFaculty.value
+                .toLowerCase();
+
+
+            const selectedDepartment =
+                filterFacultyDepartment.value;
+
+
+            const selectedStatus =
+                filterFacultyStatus.value;
+
+
+            const rows =
+                facultyTableBody
+                .querySelectorAll("tr");
+
+
+            let visibleCount = 0;
+
+
+            rows.forEach(
+                function(row) {
+
+
+                    const facultyId =
+                        row.cells[0]
+                        .textContent
+                        .trim()
+                        .toLowerCase();
+
+
+                    const name =
+                        row.cells[1]
+                        .textContent
+                        .trim()
+                        .toLowerCase();
+
+
+                    const email =
+                        row.cells[2]
+                        .textContent
+                        .trim()
+                        .toLowerCase();
+
+
+                    const department =
+                        row.cells[3]
+                        .textContent
+                        .trim();
+
+
+                    const status =
+                        row.cells[6]
+                        .textContent
+                        .trim();
+
+
+                    const matchesSearch =
+                        facultyId.includes(searchText) ||
+                        name.includes(searchText) ||
+                        email.includes(searchText);
+
+
+                    const matchesDepartment =
+                        selectedDepartment === "" ||
+                        department === selectedDepartment;
+
+
+                    const matchesStatus =
+                        selectedStatus === "" ||
+                        status === selectedStatus;
+
+
+                    if (
+                        matchesSearch &&
+                        matchesDepartment &&
+                        matchesStatus
+                    ) {
+
+                        row.style.display = "";
+
+                        visibleCount++;
+
+                    }
+
+                    else {
+
+                        row.style.display = "none";
+
+                    }
+
+                }
+            );
+
+
+            facultyCount.textContent =
+                visibleCount;
+
+        }
+
+
+
+        searchFaculty.addEventListener(
+            "input",
+            filterFaculty
+        );
+
+
+        filterFacultyDepartment.addEventListener(
+            "change",
+            filterFaculty
+        );
+
+
+        filterFacultyStatus.addEventListener(
+            "change",
+            filterFaculty
+        );
+
+
+
+        /* =================================
+           VIEW FACULTY
+        ================================= */
+
+        function viewFaculty(facultyId) {
+
+            alert(
+                "Faculty Details\n\n" +
+
+                "Faculty ID: " +
+                facultyId +
+
+                "\n\n" +
+
+                "Complete faculty information " +
+                "will be connected to the database later."
+            );
+
+        }
+
+
+
+        /* =================================
+           DELETE FACULTY
+        ================================= */
+
+        function deleteFaculty(facultyId) {
+
+            const confirmation =
+                confirm(
+                    "Are you sure you want to delete " +
+                    facultyId +
+                    "?"
+                );
+
+
+            if (confirmation) {
+
+                alert(
+                    "Faculty " +
+                    facultyId +
+                    " deleted successfully."
+                );
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

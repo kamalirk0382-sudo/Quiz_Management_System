@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Schedule Quiz - Faculty | Quiz Master</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<header class="main-header">
+		<div class="logo"><h1>Quiz Master</h1></div>
+		<nav class="main-nav">
+			<a href="faculty_dashboard.html">Dashboard</a>
+			<a href="faculty_courses.html">My Courses</a>
+			<a href="create_quiz.html">Create Quiz</a>
+			<a href="add_question.html">Add Question</a>
+			<a href="question_bank.html">Question Bank</a>
+			<a href="schedule_quiz.html" class="active">Schedule Quiz</a>
+			<a href="login.html">Logout</a>
+		</nav>
+	</header>
+
+	<main class="management-container">
+		<div class="dashboard-heading">
+			<div>
+				<h2>Schedule Quiz</h2>
+				<p>Schedule quizzes for students by setting the date, time and duration.</p>
+			</div>
+		</div>
+
+		<div class="management-card">
+			<h3>Quiz Schedule Details</h3>
+			<form id="scheduleQuizForm">
+				<div class="form-row">
+					<div class="form-group">
+						<label for="quizName">Select Quiz</label>
+						<select id="quizName" required>
+							<option value="">Select Quiz</option>
+							<option value="Python Basics Quiz">Python Basics Quiz</option>
+							<option value="SQL Fundamentals Quiz">SQL Fundamentals Quiz</option>
+							<option value="Data Science Quiz">Data Science Quiz</option>
+							<option value="Machine Learning Quiz">Machine Learning Quiz</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="course">Course</label>
+						<select id="course" required>
+							<option value="">Select Course</option>
+							<option value="Python Programming">Python Programming</option>
+							<option value="SQL Fundamentals">SQL Fundamentals</option>
+							<option value="Data Science">Data Science</option>
+							<option value="Machine Learning">Machine Learning</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group"><label for="quizDate">Quiz Date</label><input type="date" id="quizDate" required></div>
+					<div class="form-group"><label for="startTime">Start Time</label><input type="time" id="startTime" required></div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group">
+						<label for="duration">Duration</label>
+						<select id="duration" required>
+							<option value="">Select Duration</option>
+							<option value="15">15 Minutes</option>
+							<option value="30">30 Minutes</option>
+							<option value="45">45 Minutes</option>
+							<option value="60">60 Minutes</option>
+							<option value="90">90 Minutes</option>
+						</select>
+					</div>
+					<div class="form-group"><label for="totalMarks">Total Marks</label><input type="number" id="totalMarks" placeholder="Example: 40" min="1" required></div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group">
+						<label for="negativeMarking">Negative Marking</label>
+						<select id="negativeMarking"><option value="No">No</option><option value="Yes">Yes</option></select>
+					</div>
+					<div class="form-group"><label for="negativeMarks">Negative Marks Per Wrong Answer</label><input type="number" id="negativeMarks" placeholder="Example: 0.5" min="0" step="0.1"></div>
+				</div>
+
+				<div class="form-group full-width">
+					<label for="instructions">Quiz Instructions</label>
+					<textarea id="instructions" rows="5" placeholder="Enter instructions for students..."></textarea>
+				</div>
+
+				<div class="form-group">
+					<label for="status">Quiz Status</label>
+					<select id="status" required><option value="Scheduled">Scheduled</option><option value="Draft">Draft</option></select>
+				</div>
+
+				<div class="form-actions">
+					<a href="faculty_dashboard.html" class="secondary-button">Cancel</a>
+					<button type="reset" class="secondary-button">Clear</button>
+					<button type="submit" class="primary-button">Schedule Quiz</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="management-card">
+			<h3>Scheduling Information</h3>
+			<p>Once a quiz is scheduled, students will be able to see the quiz in their Available Quizzes page according to the selected date and time.</p>
+			<p>The quiz duration will determine how long students can attempt the examination.</p>
+			<p>Automatic submission and result calculation will be connected to the backend later.</p>
+		</div>
+	</main>
+
+	<footer class="main-footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+
+	<script>
+		document.getElementById("scheduleQuizForm").addEventListener("submit", function (event) {
+			event.preventDefault();
+			const get = id => document.getElementById(id).value;
+			alert("Quiz Scheduled Successfully!\n\n" +
+				"Quiz: " + get("quizName") + "\nCourse: " + get("course") +
+				"\nDate: " + get("quizDate") + "\nStart Time: " + get("startTime") +
+				"\nDuration: " + get("duration") + " minutes\nTotal Marks: " + get("totalMarks"));
+		});
+	</script>
+</body>
+
+</html>

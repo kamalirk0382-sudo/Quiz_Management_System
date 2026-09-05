@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quiz Management - Quiz Management System</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="main-header">
+	<div class="header-container">
+		<div class="logo-section"><h1>Quiz Management System</h1><p>Admin Panel</p></div>
+		<nav class="main-nav">
+			<a href="admin_dashboard.html">Dashboard</a><a href="course_management.html">Courses</a>
+			<a href="student_management.html">Students</a><a href="faculty_management.html">Faculty</a>
+			<a href="student_enrollment.html">Enrollment</a><a href="faculty_assignment.html">Faculty Assignment</a>
+			<a href="quiz_management.html" class="active">Quizzes</a><a href="admin_reports.html">Reports</a>
+			<a href="admin_profile.html">Profile</a>
+		</nav>
+	</div>
+</header>
+<main class="management-container">
+	<div class="dashboard-heading"><div><h2>Quiz Management</h2><p>Create, manage, schedule and monitor quizzes across courses.</p></div><button class="primary-button" onclick="showCreateQuizMessage()">+ Create Quiz</button></div>
+	<div class="stats-grid">
+		<div class="stat-card"><div class="stat-icon">📝</div><div><h3>65</h3><p>Total Quizzes</p></div></div>
+		<div class="stat-card"><div class="stat-icon">▶️</div><div><h3>42</h3><p>Active Quizzes</p></div></div>
+		<div class="stat-card"><div class="stat-icon">📅</div><div><h3>12</h3><p>Scheduled</p></div></div>
+		<div class="stat-card"><div class="stat-icon">✅</div><div><h3>11</h3><p>Completed</p></div></div>
+	</div>
+	<div class="management-card">
+		<div class="card-header"><div><h3>Search and Filter Quizzes</h3><p>Find quizzes by title, course, faculty or status.</p></div></div>
+		<div class="filter-section">
+			<div class="form-group"><label for="quizSearch">Search Quiz</label><input type="text" id="quizSearch" placeholder="Search quiz title, course or faculty..."></div>
+			<div class="form-group"><label for="courseFilter">Course</label><select id="courseFilter"><option value="all">All Courses</option><option value="CS101">CS101 - Python Programming</option><option value="DS201">DS201 - Data Science</option><option value="ML301">ML301 - Machine Learning</option><option value="DB204">DB204 - Database Management</option><option value="AI305">AI305 - Artificial Intelligence</option><option value="WD210">WD210 - Web Development</option></select></div>
+			<div class="form-group"><label for="statusFilter">Status</label><select id="statusFilter"><option value="all">All Status</option><option>Active</option><option>Scheduled</option><option>Completed</option><option>Draft</option></select></div>
+		</div>
+	</div>
+	<div class="management-card">
+		<div class="card-header"><div><h3>Quiz Records</h3><p>Manage all quizzes available in the system.</p></div></div>
+		<div class="table-container"><table class="management-table"><thead><tr><th>Quiz ID</th><th>Quiz Title</th><th>Course</th><th>Faculty</th><th>Date</th><th>Duration</th><th>Marks</th><th>Status</th><th>Action</th></tr></thead><tbody id="quizTableBody">
+			<script>
+				const quizzes=[
+					['QZ001','Python Basics Test','CS101','Dr. Priya Sharma','05-09-2026','30 min','40','Active','active'],
+					['QZ002','Data Science Fundamentals','DS201','Prof. Arun Kumar','07-09-2026','45 min','50','Active','active'],
+					['QZ003','Machine Learning Quiz','ML301','Dr. Meena Ravi','10-09-2026','60 min','60','Scheduled','scheduled'],
+					['QZ004','Database SQL Assessment','DB204','Prof. Karthik Raj','12-09-2026','40 min','50','Scheduled','scheduled'],
+					['QZ005','Artificial Intelligence Test','AI305','Dr. Divya Mohan','15-09-2026','45 min','50','Completed','completed'],
+					['QZ006','Web Development Assessment','WD210','Prof. Suresh Babu','18-09-2026','30 min','40','Draft',''],
+					['QZ007','Advanced Python Quiz','CS101','Dr. Priya Sharma','20-09-2026','45 min','50','Scheduled','scheduled'],
+					['QZ008','Statistics for Data Science','DS201','Prof. Arun Kumar','22-09-2026','35 min','40','Active','active']
+				];
+				document.write(quizzes.map(q=>`<tr><td>${q[0]}</td><td>${q[1]}</td><td>${q[2]}</td><td>${q[3]}</td><td>${q[4]}</td><td>${q[5]}</td><td>${q[6]}</td><td><span class="status-badge ${q[8]}">${q[7]}</span></td><td><button class="table-button view" onclick="viewQuiz('${q[0]}')">View</button> <button class="table-button edit" onclick="editQuiz('${q[0]}')">Edit</button> <button class="table-button delete" onclick="deleteQuiz('${q[0]}')">Delete</button></td></tr>`).join(''));
+			</script>
+		</tbody></table></div>
+	</div>
+</main>
+<script>
+function showCreateQuizMessage(){alert('Create Quiz feature will be connected to the Faculty Quiz Creation module.');}
+function viewQuiz(id){alert('Viewing Quiz: '+id);}
+function editQuiz(id){alert('Edit Quiz feature selected for: '+id);}
+function deleteQuiz(id){if(confirm('Are you sure you want to delete quiz '+id+'?')) alert('Quiz '+id+' has been deleted successfully.');}
+function filterQuizzes(){const search=document.getElementById('quizSearch').value.toLowerCase(),course=document.getElementById('courseFilter').value,status=document.getElementById('statusFilter').value;document.querySelectorAll('#quizTableBody tr').forEach(row=>{const text=row.textContent;row.style.display=(!search||text.toLowerCase().includes(search))&&(course==='all'||text.includes(course))&&(status==='all'||text.includes(status))?'':'none';});}
+document.getElementById('quizSearch').addEventListener('input',filterQuizzes);document.getElementById('courseFilter').addEventListener('change',filterQuizzes);document.getElementById('statusFilter').addEventListener('change',filterQuizzes);
+</script>
+</body>
+</html>

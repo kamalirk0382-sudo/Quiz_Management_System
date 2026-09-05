@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Results - Faculty | Quiz Master</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="main-header">
+		<div class="logo"><h1>Quiz Master</h1></div>
+		<nav class="main-nav">
+			<a href="faculty_dashboard.html">Dashboard</a>
+			<a href="faculty_courses.html">My Courses</a>
+			<a href="create_quiz.html">Create Quiz</a>
+			<a href="add_question.html">Add Question</a>
+			<a href="question_bank.html">Question Bank</a>
+			<a href="schedule_quiz.html">Schedule Quiz</a>
+			<a href="student_results.html" class="active">Results</a>
+			<a href="login.html">Logout</a>
+		</nav>
+	</header>
+
+	<main class="management-container">
+		<div class="dashboard-heading">
+			<div><h2>Student Results</h2><p>View and analyze student quiz performance.</p></div>
+		</div>
+		<div class="stats-grid">
+			<div class="stat-card"><div class="stat-icon">👨‍🎓</div><div><h3>120</h3><p>Students Attempted</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📝</div><div><h3>8</h3><p>Quizzes Completed</p></div></div>
+			<div class="stat-card"><div class="stat-icon">📊</div><div><h3>72%</h3><p>Average Score</p></div></div>
+			<div class="stat-card"><div class="stat-icon">🏆</div><div><h3>98%</h3><p>Highest Score</p></div></div>
+		</div>
+
+		<div class="management-card">
+			<h3>Search &amp; Filter Results</h3>
+			<div class="form-row">
+				<div class="form-group"><label for="searchStudent">Search Student</label><input id="searchStudent" type="text" placeholder="Search student name..."></div>
+				<div class="form-group"><label for="quizFilter">Quiz</label><select id="quizFilter"><option value="">All Quizzes</option><option>Python Basics Quiz</option><option>SQL Fundamentals Quiz</option><option>Data Science Quiz</option><option>Machine Learning Quiz</option></select></div>
+				<div class="form-group"><label for="resultFilter">Result Status</label><select id="resultFilter"><option value="">All Results</option><option>Pass</option><option>Fail</option></select></div>
+			</div>
+		</div>
+
+		<div class="management-card">
+			<div class="table-header"><div><h3>Quiz Results</h3><p>Total Results: <strong id="resultCount">8</strong></p></div></div>
+			<div class="table-container"><table class="management-table">
+				<thead><tr><th>ID</th><th>Student Name</th><th>Quiz</th><th>Score</th><th>Percentage</th><th>Correct</th><th>Wrong</th><th>Unanswered</th><th>Status</th><th>Action</th></tr></thead>
+				<tbody id="resultTableBody">
+					<tr><td>R001</td><td>Arun Kumar</td><td>Python Basics Quiz</td><td>36 / 40</td><td>90%</td><td>18</td><td>2</td><td>0</td><td><span class="status-badge status-active">Pass</span></td><td><button class="table-button edit-button" onclick="viewResult('R001')">View</button></td></tr>
+					<tr><td>R002</td><td>Priya Sharma</td><td>Python Basics Quiz</td><td>32 / 40</td><td>80%</td><td>16</td><td>4</td><td>0</td><td><span class="status-badge status-active">Pass</span></td><td><button class="table-button edit-button" onclick="viewResult('R002')">View</button></td></tr>
+					<tr><td>R003</td><td>Rahul Raj</td><td>SQL Fundamentals Quiz</td><td>28 / 40</td><td>70%</td><td>14</td><td>6</td><td>0</td><td><span class="status-badge status-active">Pass</span></td><td><button class="table-button edit-button" onclick="viewResult('R003')">View</button></td></tr>
+					<tr><td>R004</td><td>Divya S</td><td>SQL Fundamentals Quiz</td><td>18 / 40</td><td>45%</td><td>9</td><td>11</td><td>0</td><td><span class="status-badge status-inactive">Fail</span></td><td><button class="table-button edit-button" onclick="viewResult('R004')">View</button></td></tr>
+					<tr><td>R005</td><td>Karthik M</td><td>Data Science Quiz</td><td>34 / 40</td><td>85%</td><td>17</td><td>3</td><td>0</td><td><span class="status-badge status-active">Pass</span></td><td><button class="table-button edit-button" onclick="viewResult('R005')">View</button></td></tr>
+					<tr><td>R006</td><td>Sneha R</td><td>Data Science Quiz</td><td>24 / 40</td><td>60%</td><td>12</td><td>8</td><td>0</td><td><span class="status-badge status-active">Pass</span></td><td><button class="table-button edit-button" onclick="viewResult('R006')">View</button></td></tr>
+					<tr><td>R007</td><td>Mohan Kumar</td><td>Machine Learning Quiz</td><td>16 / 40</td><td>40%</td><td>8</td><td>12</td><td>0</td><td><span class="status-badge status-inactive">Fail</span></td><td><button class="table-button edit-button" onclick="viewResult('R007')">View</button></td></tr>
+					<tr><td>R008</td><td>Anitha P</td><td>Machine Learning Quiz</td><td>38 / 40</td><td>95%</td><td>19</td><td>1</td><td>0</td><td><span class="status-badge status-active">Pass</span></td><td><button class="table-button edit-button" onclick="viewResult('R008')">View</button></td></tr>
+				</tbody>
+			</table></div>
+		</div>
+	</main>
+	<footer class="main-footer"><p>© 2026 Quiz Master. All Rights Reserved.</p></footer>
+	<script>
+		const searchStudent = document.getElementById('searchStudent'), quizFilter = document.getElementById('quizFilter'), resultFilter = document.getElementById('resultFilter'), resultTableBody = document.getElementById('resultTableBody'), resultCount = document.getElementById('resultCount');
+		function filterResults() {
+			const search = searchStudent.value.toLowerCase(), quiz = quizFilter.value, status = resultFilter.value;
+			let count = 0;
+			resultTableBody.querySelectorAll('tr').forEach(row => {
+				const matches = row.cells[1].textContent.trim().toLowerCase().includes(search) && (!quiz || row.cells[2].textContent.trim() === quiz) && (!status || row.cells[8].textContent.trim() === status);
+				row.style.display = matches ? '' : 'none'; if (matches) count++;
+			});
+			resultCount.textContent = count;
+		}
+		searchStudent.addEventListener('input', filterResults); quizFilter.addEventListener('change', filterResults); resultFilter.addEventListener('change', filterResults);
+		function viewResult(id) { alert('Student Result\n\nResult ID: ' + id + '\n\nDetailed result page will be connected to the database later.'); }
+	</script>
+</body>
+</html>

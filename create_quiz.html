@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Create Quiz - Faculty | Quiz Master</title>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<!-- ================= HEADER ================= -->
+
+	<header class="main-header">
+
+		<div class="logo">
+			<h1>Quiz Master</h1>
+		</div>
+
+		<nav class="main-nav">
+			<a href="faculty_dashboard.html">Dashboard</a>
+			<a href="faculty_courses.html">My Courses</a>
+			<a href="create_quiz.html" class="active">Create Quiz</a>
+			<a href="login.html">Logout</a>
+		</nav>
+
+	</header>
+
+	<!-- ================= MAIN CONTENT ================= -->
+
+	<main class="management-container">
+
+		<div class="dashboard-heading">
+			<div>
+				<h2>Create New Quiz</h2>
+				<p>Create and configure a new quiz for your students.</p>
+			</div>
+		</div>
+
+		<!-- ================= QUIZ FORM ================= -->
+
+		<div class="management-card">
+			<form id="createQuizForm">
+
+				<div class="form-group">
+					<label for="quizTitle">Quiz Title</label>
+					<input type="text" id="quizTitle" name="quizTitle" placeholder="Enter quiz title" required>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group">
+						<label for="course">Course</label>
+						<select id="course" name="course" required>
+							<option value="">Select Course</option>
+							<option value="python">Python Programming</option>
+							<option value="sql">SQL Fundamentals</option>
+							<option value="data-science">Data Science</option>
+							<option value="machine-learning">Machine Learning</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="difficulty">Difficulty Level</label>
+						<select id="difficulty" name="difficulty" required>
+							<option value="">Select Difficulty</option>
+							<option value="easy">Easy</option>
+							<option value="medium">Medium</option>
+							<option value="hard">Hard</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="description">Quiz Description</label>
+					<textarea id="description" name="description" placeholder="Enter a short description about this quiz" required></textarea>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group">
+						<label for="questions">Number of Questions</label>
+						<input type="number" id="questions" name="questions" placeholder="Example: 20" min="1" required>
+					</div>
+					<div class="form-group">
+						<label for="totalMarks">Total Marks</label>
+						<input type="number" id="totalMarks" name="totalMarks" placeholder="Example: 40" min="1" required>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group">
+						<label for="timeLimit">Time Limit (Minutes)</label>
+						<input type="number" id="timeLimit" name="timeLimit" placeholder="Example: 30" min="1" required>
+					</div>
+					<div class="form-group">
+						<label for="positiveMarks">Marks for Correct Answer</label>
+						<input type="number" id="positiveMarks" name="positiveMarks" placeholder="Example: 2" min="0" step="0.5" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="negativeMarks">Negative Marks for Wrong Answer</label>
+					<input type="number" id="negativeMarks" name="negativeMarks" placeholder="Example: 0.5" min="0" step="0.5" required>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group">
+						<label for="startDate">Quiz Start Date</label>
+						<input type="datetime-local" id="startDate" name="startDate" required>
+					</div>
+					<div class="form-group">
+						<label for="endDate">Quiz End Date</label>
+						<input type="datetime-local" id="endDate" name="endDate" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="status">Quiz Status</label>
+					<select id="status" name="status" required>
+						<option value="">Select Status</option>
+						<option value="draft">Draft</option>
+						<option value="scheduled">Scheduled</option>
+						<option value="published">Published</option>
+					</select>
+				</div>
+
+				<div class="alert alert-info">
+					<strong>Quiz Settings:</strong>
+					<p>Correct answers receive positive marks. Wrong answers receive negative marks. Unanswered questions receive zero marks.</p>
+				</div>
+
+				<div class="form-actions">
+					<a href="faculty_dashboard.html" class="secondary-button">Cancel</a>
+					<button type="submit" class="primary-button">Create Quiz</button>
+				</div>
+
+			</form>
+		</div>
+	</main>
+
+	<!-- ================= FOOTER ================= -->
+
+	<footer class="main-footer">
+		<p>© 2026 Quiz Master. All Rights Reserved.</p>
+	</footer>
+
+	<!-- ================= JAVASCRIPT ================= -->
+
+	<script>
+		document.getElementById("createQuizForm").addEventListener("submit", function (event) {
+			event.preventDefault();
+			alert("Quiz created successfully!\n\nThe quiz is ready for adding questions.");
+		});
+	</script>
+
+</body>
+
+</html>
