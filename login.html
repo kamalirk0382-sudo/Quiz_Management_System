@@ -52,7 +52,8 @@
 				</div>
 
 				<!-- Login Button -->
-				<button type="submit" class="login-button">Login</button>
+				<!-- Login Button -->
+<button type="button" class="login-button" onclick="loginUser()">Login</button>
 
 				<!-- Register -->
 				<p class="register-text">
@@ -67,6 +68,19 @@
 	<footer>
 		<p>© 2026 Quiz Master. All Rights Reserved.</p>
 	</footer>
+	<script>
+function loginUser() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email === "" || password === "") {
+        alert("Please enter your email and password.");
+        return;
+    }
+
+    window.location.href = "index.html";
+}
+</script>
 </body>
 
 </html>
