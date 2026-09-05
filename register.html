@@ -67,7 +67,7 @@
 					</label>
 				</div>
 
-				<button type="button" class="register-button">Create Account</button>
+				<button type="button" class="register-button" onclick="createAccount()">Create Account</button>
 
 				<p class="login-text">
 					Already have an account?
@@ -81,6 +81,12 @@
 	<footer>
 		<p>© 2026 Quiz Master. All Rights Reserved.</p>
 	</footer>
+	<script>
+function createAccount() {
+    alert("Account created successfully!");
+    window.location.href = "login.html";
+}
+</script>
 </body>
 
 </html>
